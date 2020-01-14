@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
+    <title>AutoPia</title>
+    <link rel="stylesheet" href="http://xgstatic.chetuobang.com/common/font/font.css">
+    <link rel="stylesheet" href="http://xgstatic.chetuobang.com/common/style/375_style.css">
+    <link rel="stylesheet" href="http://xgstatic.chetuobang.com/common/style/media.css">
+  </head>
+  <style>
+    body{
+      margin: 0;
+      padding: 0;
+      background: #000;
+      font-family: 悦黑;
+      overflow: auto;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body::-webkit-scrollbar {
+      display: none;
+    }
+    .slide-left-enter-active,
+    .slide-left-leave-active,
+    .slide-right-enter-active,
+    .slide-right-leave-active {
+      will-change: transform;
+      transition: all 0.8s;
+      position: absolute;
+    }
+
+    .slide-right-enter {
+      opacity: 1;
+      transform: translateY(-100%);
+    }
+
+    .slide-right-leave-active {
+      opacity: 1;
+      transform: translateY(100%);
+    }
+
+    .slide-left-enter {
+      opacity: 1;
+      transform: translateY(100%);
+    }
+
+    .slide-left-leave-active {
+      opacity: 1;
+      transform: translateY(-100%);
+    }
+  </style>
+  <body>
+    <div id="app"></div>
+  </body>
+</html>
+

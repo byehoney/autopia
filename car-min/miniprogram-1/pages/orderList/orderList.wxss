@@ -1,0 +1,55 @@
+/* pages/orderList/orderList.wxss */
+
+
+.head{
+  display: flex;
+  height: 110rpx;
+  position: fixed;
+  z-index: 999;
+}
+.header-item {
+  display: flex;
+  width: 150rpx;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  flex: 5;
+  background-color: white;
+  z-index: 999;
+  height: 110rpx;
+  position: relative;
+}
+.goodTitle{
+  height:85rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp:2;
+  overflow: hidden;
+  word-break: break-all;
+  text-overflow: ellipsis;
+}
+.body{
+  display: flex;
+  width: 100%;
+  align-items: center;
+  font-size: 12px;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.time1{
+
+  font-family:PingFangSC-Regular,PingFang SC;
+  font-weight:400;
+  color:rgba(155,155,155,1);
+
+  font-size:20rpx; 
+}
+
+.text1{
+  
+  font-family:PingFangSC-Regular,PingFang SC;
+  font-weight:400;
+  color:rgba(155,155,155,1);
+  font-size:20rpx; 
+}

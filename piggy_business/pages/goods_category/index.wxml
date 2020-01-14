@@ -1,0 +1,43 @@
+<!--2018/07/18 created by ccy -->
+<!--pages/goods_category/index.wxml-->
+<view>
+    <view class="search_area {{pageTheme}}">
+        <view class="input-icon" bindtap="bindSearchGoods">
+            <text class="iconfont icon-chazhao"></text>
+        </view>
+        <input type="text" style='left:80rpx;' placeholder="搜索商品" confirm-type="search" bindinput="inputKeyWord" bindconfirm="bindSearchGoods"/>
+        <image src="/images/home_icon.png" bindtap="backToHome"></image>
+    </view>
+    <view class="goods_category {{pageTheme}}">
+        <scroll-view class="left_container" scroll-y>
+            <view class="category_first{{index===activeIndex?' active':''}}" wx:for="{{topCates}}"
+                  wx:key="{{item.cat_id}}"
+                  bindtap="switchTopCate"
+                  data-tabindex="{{index}}"
+            >
+                <view class="active_bg"></view>
+                <text class="textOmitted">{{item.cat_name}}</text>
+            </view>
+        </scroll-view>
+        <view class="right_container">
+            <scroll-view class="category_second new-add" scroll-y>
+                <view bindtap="clickCate" class="category_title textOmitted" data-id="{{currentSubCats.cat_id}}">全部{{currentSubCats.cat_name}}
+                </view>
+                <view class="category_second_item" wx:for="{{currentSubCats.cat_list}}" wx:for-item="cat_item"
+                      wx:key="cat_item.cat_id" bindtap="clickCate" data-id="{{cat_item.cat_id}}">
+                    <image src="{{cat_item.cat_pic}}"></image>
+                    <view class='ziying theme-bg-color' wx:if="{{cat_item.is_self_support==0}}">自营</view>
+                    <!-- <view class="category_modal"></view> -->
+                    <text class="second_category_name textOmitted2">{{cat_item.cat_name}}</text>
+                </view>
+                <!-- 暂无分类 -->
+                <view class='no-types-box' wx:if='{{currentSubCats.cat_list.length==0}}'>
+                  <image src='{{BASE_IMG_URL}}images/shape.png' class='no-types'></image>
+                  <text>暂无分类...</text>
+                </view>
+            </scroll-view>
+        </view>
+    </view>
+</view>
+
+<include src="/pages/public/page_footer.wxml"></include>

@@ -1,0 +1,138 @@
+
+.carhistory{
+    width: 100vw;
+    padding: 0 40px;
+    margin:0 auto;
+    padding-top: 30px;
+    background: white;
+    font-size: 16px;
+    touch-action:none;
+    height: 100vh;
+    overflow: hidden;
+    padding-bottom: 50px;
+    .am-list-body::before{
+        display: none !important;
+    }
+    .am-list-body::after{
+        display: none !important;
+    }
+    .no{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        img{
+            width: 200px;
+            margin: 166px 0 120px 0;
+        }
+        p{
+            font-family: PingFangHK-Light;
+            font-size: 34px;
+            color: #333333;
+            letter-spacing: 0;
+        }
+    }
+    .refresh{
+       font-size: 40px;
+    }
+    .head{
+        height:165px;
+        background: #24AFE7;
+        box-shadow: 0 10px 20px 0 rgba(178,178,178,0.50);
+        border-radius: 20px;
+        padding-top: 21px;
+        padding-left: 40px;
+        font-family: Aharoni-Bold;
+        font-size: 72px;
+        color: #FFFFFF;
+        letter-spacing: 11.08px;
+        background: url(../images/carhistoryhead.png);
+        background-size: 100%;
+        div{
+            display: flex;
+            align-items: center;
+        }
+        p{
+            font-family: PingFangHK-Light;
+            font-size: 24px;
+            color: #FFFFFF;
+            letter-spacing: 0;
+            margin-top: 10px;
+        }
+        .num{
+            width: 450px;
+            overflow:hidden;
+            text-overflow:ellipsis;
+            white-space:nowrap;
+            margin-left:30px
+        }
+        span{
+            width:100px;
+            height: 50px;
+            background: #FFFFFF;
+            border-radius: 16px;
+            font-family: PingFangHK-Semibold;
+            font-size: 24px;
+            color: #24AFE7;
+            letter-spacing: 0;
+            display: inline-block;
+            text-align: center;
+            line-height: 50px;
+        }
+    }
+    .con{
+        width: 100%;
+        >p{
+            font-family: PingFangHK-Semibold;
+            font-size: 24px;
+            color: #333333;
+            letter-spacing: 0;
+            margin: 40px 0 0 40px;
+            padding-bottom: 20px;
+        }
+        .conlist{
+            background: #F8FBFC;
+            border-radius: 8px;
+            height: 128px;
+            margin-top: 30px;
+            display: flex;
+            font-family: PingFangSC-Medium;
+            font-size: 34px;
+            color: #24AFE7;
+            letter-spacing: 0;
+            div{
+                width: 50%;
+            }
+            .left p{
+                font-family: PingFangSC-Light;
+                font-size: 22px;
+                color: #24AFE7;
+                letter-spacing: 0;
+                margin-top: 10px;
+            }
+            .left{
+                padding-top: 25px;
+                padding-left: 40px;
+            }
+            .right{
+                text-align: right;
+                line-height: 128px;
+                font-size: 30px;
+                padding-right: 40px;
+            }
+            .jia{
+            color: #333333;
+            letter-spacing: 0;
+            }
+            span{
+                padding-right: 10px;
+            }
+            .jian{
+                color: #F95E59;
+                letter-spacing: 0;
+               
+            }
+        }
+    }
+}

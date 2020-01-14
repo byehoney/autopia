@@ -1,0 +1,188 @@
+<import src="../../wxParse/wxParse.wxml" />
+<!--pages/seckill/index.wxml-->
+<view class="seckill {{pageTheme}}">
+    <view style="padding: 5px 5px;" wx:if="{{applet_guide_subscribe}}">
+        <official-account binderror="officialAccountError"></official-account>
+    </view>
+    <block wx:if="{{imgUrls.length>1}}">
+        <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" class="b_banner" indicator-active-color="#ff3867">
+            <block wx:for="{{imgUrls}}" wx:key="">
+                <swiper-item>
+                    <image src="{{item}}" data-src="{{item}}" bindtap="previewImage" class="slide-image" mode="aspectFit" />
+                </swiper-item>
+            </block>
+        </swiper>
+    </block>
+    <block wx:else>
+        <view class="b_banner">
+            <image wx:for="{{imgUrls}}" wx:key="" src="{{item}}" mode="aspectFit"></image>
+        </view>
+    </block>
+
+    <view class="seckillStatus  {{isSecKill?'on':''}}  {{allInfo.is_start==2 || allInfo.is_start==3?'gray':''}}">
+        <view class="statusRow fr {{!isSecKill ? 'gray' : ''}}">
+            <!--<view class="row" wx:if="{{allInfo.is_start==1}}">
+			<p class="h2">尚未开始</p>
+			<p class="h3">{{total_show}}天后开始</p>
+		</view> -->
+            <view class="row" wx:if="{{allInfo.is_start==2}}">
+                <p class="h2">活动已结束</p>
+                <p class="h3">抱歉您来晚一步！</p>
+            </view>
+            <view class="row" wx:elif="{{allInfo.is_start==3}}">
+                <p class="h4">活动已关闭</p>
+            </view>
+            <view class="row" wx:else>
+                <!---秒杀中-->
+                <block wx:if="{{isSecKill}}">
+                    <block wx:if="{{total_show>0}}">
+                        <p class="h2 red">秒杀中……</p>
+                        <p class="h3 red">{{total_show}}天后结束</p>
+                    </block>
+                    <block wx:else>
+                        <p class="h2 red">秒杀中……</p>
+                        <view class="countDown">
+                            <!--<span>{{total_show}}</span><em>天</em>-->
+                            <span>{{hours_show}}</span>
+                            <em>时</em>
+                            <span>{{minutes_show}}</span>
+                            <em>分</em>
+                            <span>{{seconds_show}}</span>
+                            <em>秒</em>
+                        </view>
+                    </block>
+                </block>
+                <!---倒计时-->
+                <block wx:else>
+                    <block wx:if="{{total_show>0}}">
+                        <p class="h2">尚未开始</p>
+                        <p class="h3">{{total_show}}天后开始</p>
+                    </block>
+                    <block wx:else>
+                        <p class="h2 red">开抢倒计时</p>
+                        <view class="countDown">
+                            <!--<span>{{total_show}}</span><em>天</em>-->
+                            <span>{{hours_show}}</span>
+                            <em>时</em>
+                            <span>{{minutes_show}}</span>
+                            <em>分</em>
+                            <span>{{seconds_show}}</span>
+                            <em>秒</em>
+                        </view>
+                    </block>
+                </block>
+            </view>
+        </view>
+        <view class="seckillInfo">
+            <span class="price">
+                <em>￥</em>{{show_seckill_price}}</span>
+            <view class="o_price">
+                <p>¥{{show_origin_price}}</p>
+                <em>{{seckillInfo.quantity}}件</em>
+            </view>
+        </view>
+    </view>
+    <view class="shareBlock">
+        <button class="fr shareBtn" bindtap="shareTap">
+            <i class="iconfont icon-share1"></i>
+            <p wx:if="{{allInfo.is_start == 1 && seckillInfo.preset_time > 0}}">分享</p>
+            <p wx:if="{{allInfo.is_start != 1 || (allInfo.is_start == 1 && seckillInfo.preset_time == 0)}}">分享</p>
+        </button>
+        <view class="seckillName">
+          
+            <view class="table">
+                <view class="t_cell textOmitted2">
+                     <view class='circle-buy-tag theme-bg-color' wx:if="{{proInfo.is_self_support==0}}">自营</view>
+                    {{proInfo.name}}
+                    <em>{{allInfo.property_value.value}}</em>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="share_p" wx:if="{{allInfo.is_start == 1 && seckillInfo.preset_time > 0}}">
+        <view class="wrap">
+            分享每个用户查看后都将给你的时间缩短{{seckillInfo.preset_time}}秒哦~
+        </view>
+    </view>
+    <view class="team" wx:if="{{allInfo.shareUser.length > 0 && seckillInfo.preset_time > 0}}">
+        <view class="hd">
+            <view class="wrap">
+                <i class="iconfont icon-good"></i>
+                <span>棒棒哒，抢购提前
+                    <em>{{seckillInfo.preset_time * allInfo.shareUser.length}}</em>秒</span>
+            </view>
+        </view>
+        <view class="bd flex flex-middle">
+            <view class="li" wx:for="{{allInfo.shareUser}}" wx:if="{{index<5}}">
+                <image src="{{item.avatar}}"></image>
+            </view>
+        </view>
+        <view class="ft">
+            <span bindtap="checkTeamAll">查看我的秒杀亲友团</span>
+        </view>
+    </view>
+    <view class="d_desc">
+        <view class="secTit" wx:if="{{seckillInfo.description != ''}}">
+            <view class="h3">{{rightCode}}<text style="font-weight:600;"> 活动说明 </text>{{leftCode}}</view>
+        </view>
+        <view class="pureText" wx:if="{{seckillInfo.description != ''}}">
+            <view class="wrap">
+                <text>{{seckillInfo.description}}</text>
+            </view>
+        </view>
+        <view class="secTit">
+            <view class="h3">{{rightCode}}<text style="font-weight:600;"> 图文详情 </text>{{leftCode}}</view>
+        </view>
+        <view class="thisDesc" wx:if="{{proInfo.info != ''}}">
+            <template is="wxParse" data="{{wxParseData:infoHtml.nodes}}" />
+        </view>
+        <view class="showTxt" wx:if="{{proInfo.info == ''}}">
+            <image src="{{BASE_IMG_URL}}images/imgTxtCommon.png"></image>
+            <view>暂无商品图文详情哦！</view>
+        </view>
+    </view>
+
+    <form report-submit="true" bindsubmit="formSubmit">
+        <button form-type="submit"
+                data-bindtap="{{payType}}"
+                style="bottom:{{store_nav_list_show?'88rpx':0}}"
+                class="ftBtn {{buttonColor}} {{isIpx}}__footer__btn-group">{{shoppingCatButton}}</button>
+    </form>
+
+
+
+    <view class="mask" wx:if="{{maskShow}}" bindtap="maskClick"></view>
+    <view class="teamList" wx:if="{{teamShow}}">
+        <span class="iconfont icon-cuowu_quan_001" bindtap="maskClick"></span>
+        <view class="h2">秒杀亲友团</view>
+        <view class="wrap">
+            <view class="t_list">
+                <view class="ul">
+                    <view class="li clearfix" wx:for="{{allInfo.shareUser}}">
+                        <image src="{{item.avatar}}" class="fl"></image>
+                        <view class="desc">
+                            <span class="fr cut">提前
+                                <em>{{item.preset_time}}</em> 秒</span>
+                            <p class="name">{{item.nickname}}</p>
+                            <p class="time">{{item.addtime_str}}</p>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<!--海报画布-->
+    <canvas canvas-id='seckillPost' style="width: {{canvasPosition.w}}px; height: {{canvasPosition.h}}px;position:absolute;left: -1000rpx;"></canvas>
+<!-- <shareModal id='shareModal'
+            title='我是标题'
+            content="content"
+            cancelText='取消'
+            bind:_cancelEvent="_cancelEvent"
+            bind:_shareGroup="_shareGroup"
+            bind:_shareFriendsCircle="_shareFriendsCircle">
+</shareModal> -->
+
+<bottom-modal id='shareModal'  cancelText='取消' bind:_cancelEvent="_cancelEvent" bind:_shareGroup="_shareGroup" bind:_shareFriendsCircle="_shareFriendsCircle"></bottom-modal>
+
+<include src="/pages/public/page_footer.wxml"></include>

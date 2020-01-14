@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "canvasdrawer": "/components/canvasdrawer/canvasdrawer"
+  },
+  "navigationBarTitleText":"邀请关系"
+}

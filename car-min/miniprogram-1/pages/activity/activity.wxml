@@ -1,0 +1,92 @@
+<!--pages/activity/activity.wxml-->
+<view class="super_box">
+  <image src="https://ctb-public-file.oss-cn-beijing.aliyuncs.com/shop/activityBanner%402x.png" style="width:750rpx;height:340rpx"></image>
+  <view style="height:30rpx"></view>
+
+  <!-- 单排样式 -->
+  <block wx:if="{{0}}">
+    <view wx:for="{{10}}" class="goodItem" bindtap="goAssemble" data-idx="{{index}}">
+      <image src="" style="width:240rpx;height:240rpx;background:red;margin-left:15rpx"></image>
+      <view class="itemRight" >
+      
+        <view class="title" style="height:auto">
+          <image style="display:inline-block;width:70rpx;height:30rpx;background:gold"></image>
+          <text style="color:#333;font-size:28rpx">6盒早餐肠肉肠乐香肠尊乐小烤350g 6盒早餐肠肉餐肠肉肠乐香肠尊乐小烤350g 6盒早</text>
+        </view>
+
+        <view class="singleLabel" style="display:flex;align-items:center">
+          <view style="background:#ffefef;border-radius:8rpx;align-items: center;justify-content: center;width: 100rpx;display: flex;height: 35rpx;">
+            <text style="color:#f63d42;font-size:22rpx">232人</text>
+          </view>
+
+          <view style="border-style:solid;border-width:1rpx;border-color:#f63d42;align-items:center;justify-content:center">
+            <text style="color:#f63d42;font-size:22rpx;padding:2px 4px;display: flex;">5人团</text>
+          </view>
+        </view>
+        <view style="background:#f5373c;border-radius:8rpx;align-items: center;justify-content: center;width: 180rpx;display: flex;height: 40rpx;">
+          <text style="color:white;font-size:22rpx">最高返¥9.9</text>
+        </view>
+      
+
+        <view class="priceBottom" style="display:flex;justify-content:space-between">
+          <text>¥299.99</text>
+          <view style="background:#f94d52;border-radius:8rpx;align-items:center;justify-content:center">
+            <text style="font-size:26rpx;padding: 2px 5px;color:white;display: flex;">去拼团</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+
+  <!-- 双排样式 -->
+  <block wx:else>
+    <view style="display:flex;flex-wrap:wrap;flex-direction:row;width:750rpx">
+      <view wx:for="{{11}}" style="margin-left:25rpx;width:340rpx;height:560rpx;background:white;margin-bottom:20rpx;flex-direction:column;align-items:center;display:flex" bindtap="goAssemble" data-idx="{{index}}">
+        <image src="" style="width:340rpx;height:340rpx;background:blue"></image>
+        <view style="background:#f63b40;width:340rpx;height:50rpx;display:flex;justify-content:space-between;align-items:center">
+
+          <view style="border-radius:8rpx;align-items: center;justify-content: center;width: auto;display: flex;height: 35rpx;margin-left:10rpx;height:60rpx">
+            <text style="color:white;font-size:22rpx">232人已买</text>
+          </view>
+
+          <view style="border-style:solid;border-width:1rpx;border-color:white;align-items:center;justify-content:center;margin-right:10rpx;display: flex;border-radius:8rpx;height:35rpx">
+            <text style="color:white;font-size:20rpx;padding:0px 3px;display: flex;">5人团</text>
+          </view>
+
+
+        </view>
+        
+        <view class="title" style="height:auto">
+          <image style="display:inline-block;width:70rpx;height:30rpx;background:gold"></image>
+          <text style="color:#333;font-size:28rpx">6盒早餐肠肉肠乐香肠尊乐小烤350g 6盒早餐肠肉早餐肠肉</text>
+
+        </view>
+
+        <view class="dowbleBottom" style="display:flex;flex-direction:row;justify-content:space-between;width:340rpx;height:90rpx;align-items:flex-end">
+          <view class="bottomLeft" style="display:flex;flex-direction:column">
+            <view style="display:flex" class="label">
+              <view style="background:#f43c43;;display:flex;align-items:center;justify-content:center;height:30rpx">
+                <text style="font-size:20rpx;color:white;padding-left:6rpx;padding-right:6rpx">最高返</text>
+              </view>
+              
+              <view style="background:white;display:flex;align-items:center;justify-content:center;border-style:solid;border-width:1rpx;border-left:1rpx;border-color:#f43c43;height:30rpx">
+                  <text style="font-size:20rpx;color:#f43c43;padding-left:6rpx;padding-right:6rpx">22.0元</text>
+          
+              </view>
+            </view>
+            <text style="color:#f5373c;font-size:28rpx">¥299.99</text>
+
+          </view>
+          <view class="bottomRight" style="background:#ff787d;border-radius:8rpx;display:flex;align-items:center;justify-content:center;width:100rpx;height:50rpx">
+            <text style="color:white;font-size:28rpx;">去拼团</text>
+          </view>
+        </view>
+
+    </view>
+    
+      
+    </view>
+  </block>
+
+
+</view>

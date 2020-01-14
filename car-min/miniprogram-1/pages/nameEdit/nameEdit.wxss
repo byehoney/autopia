@@ -1,0 +1,21 @@
+/* pages/nameEdit/nameEdit.wxss */
+.name-input{
+
+  margin-left:20rpx;
+  height: 100rpx;
+  background: #fff;
+}
+.wxui{
+  background: #fff;
+
+}
+
+.saveBtn{
+  color: #fff;
+
+  width: 80vw;
+  height: 100rpx;
+  border-radius: 30rpx;
+  margin-top: 70vh;
+}
+

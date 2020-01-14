@@ -1,0 +1,88 @@
+/* pages/searchList/searchList.wxss */
+.headSearchView{
+  height: 100rpx;
+  background:white;
+  z-index: 1001;
+}
+
+.inner .icon{
+  width: 26rpx;
+  height: 26rpx;
+  margin-left: 27rpx;
+}
+.searchInput{
+ 
+  margin-left: 20rpx;
+  z-index: 1010;
+  height: 80rpx;
+  line-height:80rpx;
+  vertical-align:top;
+  width: 620rpx
+}
+
+.bottomContent{
+  display: flex;
+  flex-direction: column;
+
+}
+.viewDelete{
+  width: 80rpx;
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 30rpx;
+}
+.viewDelete image{
+  width: 60rpx;
+  height: 60rpx;
+
+}
+.bottomItemBig{
+  display: flex;
+  flex-wrap: wrap;
+  background: white;
+}
+.bottomItem{
+  background: #f0f0f0;
+  border-radius: 10rpx;
+  width: auto;
+  height: 50rpx;
+  margin: 10rpx 20rpx;
+  display: flex;
+}
+.foodItem{
+  height: 300rpx;
+  display: flex;
+  align-items: center;
+}
+.goodsItemRight{
+  display: flex;
+  flex-direction: column;
+  width: 430rpx;
+  height: 250rpx;
+  /* //background: lightskyblue; */
+  justify-content: space-between;
+}
+
+
+.goodTitle text{
+  height:auto;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp:2;
+  overflow: hidden;
+  word-break: break-all;
+  text-overflow: ellipsis;
+
+}
+.goodLabel text{
+  height:auto;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp:1;
+  overflow: hidden;
+  word-break: break-all;
+  text-overflow: ellipsis;
+
+}

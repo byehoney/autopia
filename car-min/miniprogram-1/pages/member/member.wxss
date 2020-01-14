@@ -1,0 +1,88 @@
+/**member.wxss**/
+.superbox{
+  display: flex;
+  background: #F3E8DD;
+}
+.head{
+  background: #1c1b1c;
+  width: 750rpx;
+  height: 270rpx;
+  border-bottom-left-radius:20%;
+  border-bottom-right-radius:20%;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+.card{
+  width:690rpx;
+  height: 220rpx;
+  margin-top: 50rpx;
+  background: #3c3b3c;
+  border-radius: 10rpx;
+  display: flex;
+
+
+}
+.head_right{
+  display: flex;
+  flex-direction: column;
+  margin-top: 40rpx;
+  margin-left: 10rpx;
+
+}
+.kingSeg{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+
+}
+
+
+.vip_bottom{
+
+  width:750rpx;
+  height: auto;
+  display: flex;
+  justify-content: center;
+
+}
+.background{
+  width: 690rpx;
+  height: 848rpx;
+  position: relative;
+  display: flex;
+  justify-content: center;
+
+}
+.background image{
+  position: absolute;
+}
+
+.bottomInvite{
+
+  position: fixed;
+  height: 100rpx;
+  width: 750rpx;
+  bottom: 20rpx;
+  background:white;
+  z-index: 1009;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  background: transparent;
+
+}
+.bottomPurchse{
+  position: fixed;
+  height: 260rpx;
+  width: 750rpx;
+  bottom: 0rpx;
+  background:#121212;
+  z-index: 99;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+}

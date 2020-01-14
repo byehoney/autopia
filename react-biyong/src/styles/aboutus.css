@@ -1,0 +1,26 @@
+.adoutus {
+  width: 100%;
+  padding-top: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.adoutus img {
+  width: 150px;
+  height: 150px;
+}
+
+.adoutus .con {
+  margin-top: 80px;
+  width: 630px;
+  font-family: PingFangHK-Light;
+  font-size: 32px;
+  color: #333333;
+  letter-spacing: 1px;
+}
+
+.adoutus .con p {
+  margin-bottom: 50px;
+}

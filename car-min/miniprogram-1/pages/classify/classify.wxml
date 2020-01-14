@@ -1,0 +1,56 @@
+<!--classify.wxml-->
+<view class="superView">
+  <view class="headSearchView" style="position:fixed;width:750rpx">
+    <view class="inner" style="margin:10rpx 30rpx;display: flex;align-items: center;background-color: #F0F2F5;border-radius:35rpx;;height:80rpx;z-index:1002">
+      <image class="icon" src="https://ctb-public-file.oss-cn-beijing.aliyuncs.com/shop/sousuo.png"></image>
+      <input placeholder="搜索商品" bindtouchstart="inputChange" class="searchInput" placeholder-style="color:#ccc;font-size:28rpx" ></input>
+    </view>
+      
+  </view>
+
+  <view style="height:100rpx"></view>
+  <view class="lineAll"></view>
+
+  <view class="content">
+  
+    <scroll-view class="leftView" scroll-y>
+      <block wx:for="{{typeList}}">
+          <view wx:if="{{index!=leftIndex}}" class="viewTypeItem" bindtap="typeChange" data-idx="{{index}}" data-item="{{item}}">
+              <text style="font-size:22rpx;color:#828282">{{item.cate_name}}</text>
+          </view>
+          
+
+          <view wx:else class="viewTypeSelectedItem" bindtap="typeChange" data-idx="{{index}}" data-item="{{item}}">
+              <view style="height:30rpx;width:7rpx;border-radius:3rpx;background:#f43a41;margin-right:15rpx;align-items:center;position: absolute;left: 15rpx;"></view>
+              <text style="font-size:26rpx;color:#333333">{{item.cate_name}}</text>
+          </view>
+
+      </block>
+
+
+    </scroll-view>
+    
+    <scroll-view class="rightView" scroll-y>
+        <view class="blockRight">
+          <view style="margin-left:20rpx;margin-top:20rpx;margin-bottom:20rpx">
+              <text style="font-size:24rpx;color:#333">{{title}}</text>
+          </view>
+          
+         <view style="display:flex;flex-wrap:wrap">
+            <block wx:for="{{goodsList}}">
+              <view class="rightItem" bindtap="goodsClick" data-idx="{{index}}" data-item="{{item}}">      <image style="width:130rpx;height:130rpx" src="{{item.image_url}}" mode="aspectFill"></image>
+                <text>{{item.cate_name}}</text>
+                
+              </view>
+    
+            </block>
+         </view>
+        </view>
+    </scroll-view>
+  </view>
+
+</view>
+
+
+
+

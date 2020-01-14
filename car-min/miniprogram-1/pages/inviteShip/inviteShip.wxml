@@ -1,0 +1,113 @@
+<!--pages/inviteShip/inviteShip.wxml-->
+<import src="../../wxParse/wxParse.wxml" />
+<view class="container">
+  <!-- 邀请我的人 -->
+  <view class="inviteMe">
+    <view class="inviteHead">我的邀请人</view>
+    <view class="inviteBody">
+      <view class="inviteItem">
+        <view class="left">
+          <image class="atv" src="{{my_inviter.head_img}}"></image>
+          <view class="info">
+            <view class="nickName">{{my_inviter.nickname}}</view>
+            <view class="time">{{my_inviter.created_at}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 我邀请的人 -->
+  <view class="myInvite">
+    <view class="inviteHead">
+      <view class="title">邀请会员</view>
+      <view class="reward">积累返现{{reward_money_one}}元</view>
+    </view>
+    <view class="noInvite" wx:if="{{!invite_user.length}}">
+      <view class="des">你还没有邀请其他人成为会员</view>
+      <button class="btn" bindtap="shareSelect">立即邀请</button>
+    </view>
+    <view class="inviteBody" wx:else>
+      <view class="inviteItem" wx:for="{{invite_user}}" wx:for-item="item" wx:key="{{item.user_id}}">
+        <view class="left">
+          <image class="atv" src="{{item.head_img}}"></image>
+          <view class="info">
+            <view class="nickName">{{item.nickname}}</view>
+            <view class="time">{{item.created_at}}</view>
+          </view>
+        </view>
+        <view class="right">奖励{{item.reward_money}}元</view>
+      </view>
+    </view>
+  </view> 
+  <!-- 邀请购物的人 -->
+  <view class="myInvite">
+    <view class="inviteHead">
+      <view class="title">邀请购物</view>
+      <view class="reward">积累返现{{reward_money_two}}元</view>
+    </view>
+    <view class="noInvite" wx:if="{{!invite_shipping.length}}">
+      <view class="des">你还没有邀请其他人成为会员</view>
+      <button class="btn" bindtap="shareSelect">立即邀请</button>
+    </view>
+    <view class="inviteBody" wx:else>
+      <view class="inviteItem" wx:for="{{invite_shipping}}" wx:for-item="item" wx:key="{{item.user_id}}">
+        <view class="left">
+          <image class="atv" src="{{item.head_img}}"></image>
+          <view class="info">
+            <view class="nickName">{{item.source_user_nickname}}</view>
+            <view class="time">{{item.updated_at}}</view>
+          </view>
+        </view>
+        <view class="right">奖励{{item.profits_fee}}元</view>
+      </view>
+    </view>
+  </view> 
+  <view class="tip">如果您是购买人的绑定邀请人，您将有机会获得奖励</view>
+
+
+   <view class="blackBackground-screen" wx:if="{{shareSelect}}" bindtap="cancelShare" catchtouchmove="myCatchTouch">
+ 
+  </view>
+
+  <view class="content_box" wx:if="{{shareSelect}}" catchtouchmove="myCatchTouch">
+    <view class="model-view">
+      <view style="width:750rpx;display:flex;justify-content:flex-end" bindtap="cancelShare">
+        <!-- <text style="font-size:30rpx;color:#333;margin-right:20rpx;margin-top:10rpx"> x </text> -->
+        <image src="https://ctb-public-file.oss-cn-beijing.aliyuncs.com/shop/guanbi%402x.png" style="width:25rpx;height:25rpx;margin-right:30rpx;margin-top:20rpx"></image>
+      </view>
+
+      <view style="display:flex;justify-content:center;margin-top:20rpx">
+        <text style="font-size:30rpx;color:#666"> —————— 分享至 —————— </text>
+      </view>
+
+      <view style="display:flex;align-items:center;justify-content:center;margin-top:60rpx">
+        <view  style="margin-right:30rpx;">
+          <image src="/images/weixin@2x.png" style="width:100rpx;height:100rpx;"></image>
+          <button open-type="share" style="background-color:transparent;width: 100rpx;height: 100rpx;display: flex;margin-top: -100rpx;"></button>
+          
+        </view>
+        <view  style="margin-left:30rpx;" bindtap="eventDraw">
+          <image src="/images/fenxiangtu@2x.png" style="width:100rpx;height:100rpx;"></image>
+        </view>
+
+      </view>
+
+    </view>
+
+  </view>
+
+  <view class="blackBackground-screen" wx:if="{{drawSelect}}" bindtap="cancelShare" catchtouchmove="myCatchTouch">
+  </view>
+
+  <view class="draw_box" wx:if="{{drawSelect}}" bindtap="cancelShare" catchtouchmove="myCatchTouch">
+      
+    
+    <image src="{{shareImage}}" class="share-image"></image>
+    <canvasdrawer painting="{{painting}}" class="canvasdrawer" bind:getImage="eventGetImage"/>
+    <view style="display:flex;margin-top:30rpx;margin-bottom:50rpx;width:70rpx;height:70rpx;margin-left:340rpx" bindtap="eventSave">
+      <image src="/images/baocun@2x.png" style="width:70rpx;height:70rpx"></image>
+    </view>
+  </view>
+
+
+</view>

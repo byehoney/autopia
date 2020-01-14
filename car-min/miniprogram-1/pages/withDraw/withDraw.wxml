@@ -1,0 +1,78 @@
+<!--pages/withDraw/withDraw.wxml-->
+<view class="container">
+  <view class="opArea">
+    <view class="title">提现金额</view>
+    <view class="opNum">
+      <view class="unit">¥</view>
+     <input class="input" type="number" placeholder-style="color:#ccc" placeholder="单次不低于100元，递增100元" bindinput="inputSome" style="width:650rpx"/>
+    </view>
+    <view class="opTip">
+      <view class="tip {{isErr?'light':''}}">可提取现金{{withdraw_able_fee}}元</view>
+      <view class="rule" bindtap="jumpRule">提现规则</view>
+    </view>
+    <view class="btn light" wx:if="{{isCan}}" bindtap="withApply">提现</view>
+    <view class="btn" wx:else>提现</view>
+  </view>
+  <!-- 提现记录 -->
+  <view class="list">
+    <view class="title">提现记录</view>
+
+    <block wx:for="{{list}}">
+      <view class="listItem">
+        <view class="left">
+          <view class="type">提现</view>
+          <view class="time">{{item.application_time}}</view>
+        </view>
+        <view class="right">
+          <view class="money">{{item.cashout_money}}</view>
+          <view class="type">
+            <!-- 状态 0 待审核，1 审核通过 ,2已打款，3驳回   4放款失败 -->
+           <block wx:if="{{item.status==0}}">
+              <!-- <view class="sendType">发放方式：银行转账</view> -->
+            
+              <view class="state">待审核</view>
+           </block>
+           
+           <block wx:elif="{{item.status==1}}">
+              <view class="sendType">发放方式：银行转账</view>
+            
+              <view class="state">待打款</view>
+           </block>
+
+           <block wx:elif="{{item.status==2}}">
+              
+              <view class="state">已提现</view>
+           </block>
+
+           <block wx:elif="{{item.status==3}}">
+           
+             <view class="sendType err" bindtap="lookReason" data-item="{{item}}">查看原因</view>
+            
+              <view class="state">驳回</view>
+           </block>
+            <block wx:elif="{{item.status==4}}">
+              <view class="sendType">发放方式：银行转账</view>
+              <view class="state">待打款</view>
+           </block>
+            
+
+          </view>
+        </view>
+      </view>
+    </block>
+    
+
+  </view>
+
+  <block wx:if="{{reject.length>0}}">
+    <view class="mask">
+      <view class="modal">
+        <view bindtap="close" style="width:50rpx;height:30rpx">
+          <image class="icon" src="../../images/order/cha.png"></image>
+        </view>
+        <view class="title">提现失败</view>
+        <view class="reason">{{reject}}</view>
+      </view>
+    </view>
+  </block>
+</view>

@@ -1,0 +1,185 @@
+.citationDetailContianer{
+    .violate-plate {
+        margin: 0 auto 110px;
+      }
+      .tips {
+        font-size: 32px;
+        color: #4F5761;
+        letter-spacing: 3.2px;
+        line-height: 44px;
+      }
+      .violate-plate {
+        font-family: PingFangHK-Medium;
+        font-size: 40px;
+        color: #4F5761;
+        letter-spacing: 0;
+        line-height: 40px;
+        margin: 50px 0;
+      }
+      .violate-title {
+        display: flex;
+        justify-content: space-between;
+        font-family: PingFangTC-Regular;
+        font-size: 22px;
+        color: #8F8F8F;
+        letter-spacing: 2.2px;
+        line-height: 22px;
+        margin-bottom: 24px;
+        align-items: center;
+      }
+      .violate-status {
+        font-size: 24px;
+        color: #FF913A;
+        background: rgba(255,145,58,.2);
+        border-radius: 100px;
+        size: 110px 40px;
+        line-height: 40px;	
+      }
+      .violate-finish {
+        color: #1BC787;
+        background: rgba(27,199,135,.2);
+      }
+      .violate-row {
+        display: flex;
+        padding: 20px 0;
+        border-bottom: 1px solid #EFEFEF;
+        align-items: flex-start;
+        text-align: left;
+      }
+      .violate-label {
+        font-size: 22px;
+        color: #8F8F8F;
+        letter-spacing: 2.2px;
+        line-height: 22px;
+        margin-right: 30px;
+        padding-top: 10px;
+        align-self: flex-start;
+      }
+      .violate-p {
+        font-size: 28px;
+        color: #4F5761;
+        letter-spacing: 2.8px;
+        line-height: 44px;
+        flex: 1;
+      }
+      .violate-punish {
+        width: 330px;
+        display: flex;
+        justify-content: space-between;
+        font-family: PingFangTC-Medium;
+        font-size: 28px;
+        color: #4F5761;
+        letter-spacing: 2.2px;
+        line-height: 28px;
+        margin: 50px auto 0;
+      }
+      .violate-punish-count {
+        background: url('../../images/hm_icon_points.png') no-repeat 0 0;
+        padding-left: 50px;
+        height: 31px;
+        line-height: 32px;
+        background-size: 32px;
+      }
+      .violate-punish-money {
+        background: url(../../images/hm_iocn_penalty.png) no-repeat 0 0;
+        padding-left: 50px;
+        height: 31px;
+        line-height: 32px;
+        background-size: 32px;
+      }
+      .pay {
+        background: #FFFFFF;
+        box-shadow: 0 -1px 1px 0 #CCCCCC;
+        width: 100%;
+        height: 88px;
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+      }
+      .pay-list {
+        flex: 1;
+        display: flex;
+        font-size: 22px;
+        color: #fff;
+        align-items: center;
+        padding-left: 20px;
+        background-color: #333;
+      }
+      .pay-item {
+        padding: 0 20px;
+        border-right: 1px solid  #B5B5B5;
+      }
+      .pay-item:last-child {
+        border-right: none;
+      }
+      .history {
+        text-align: center;
+        padding-bottom: 130px;	
+      }
+      .history .violate-plate, .violate-p {
+        
+      }
+      .history .violate-plate {
+        margin: 40px;
+      }
+      .history .violate-info-old {
+        margin: 0 73px 0 40px;
+      }
+      
+      .history-item {
+        display: flex;
+      }
+      
+      .history .content {
+        padding-bottom: 84px;
+        flex: 1;
+      }
+      
+      .history-item:last-child .content {
+        padding-bottom: 0;
+      }
+      
+      .history .img-tip {
+        width: 38px;
+        margin-right: 32px;
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .history .circle {
+        width: 38px;
+        height: 38px;
+        background: url('../../images/hm_icon_timeline.png') no-repeat;
+        background-size: 100%;
+      }
+      .history .line {
+        width: 4px;
+        height: 100%;
+        opacity: 0.2;
+        background: #95DDFA;
+        position: absolute;
+        left: 17px;
+      }
+      .pay-btn {
+            background: #24AFE7 ;
+            width: 248px;
+            height: 98px;
+            line-height: 98px;
+            font-family: PingFangHK-Medium;
+            font-size: 36px;
+            color: #FFFFFF;
+            letter-spacing: 2px;
+            position: relative;
+            top: -10px;
+      }
+      .pay-btn:before {
+        content: '';
+        display: block;
+        border: 10px solid transparent;
+        border-bottom-color: #24AFE7 ;
+        position: absolute;
+        top: -10px;
+        left: -10px;
+      }
+}

@@ -1,0 +1,98 @@
+.invite {
+    padding: 40px;
+    .invite-info {
+        background: #FFFFFF;
+        box-shadow: 0 10px 30px 0 rgba(213,213,213,0.50);
+        border-radius: 20px;
+        padding: 60px 60px 72px;
+        margin-bottom: 40px;
+        text-align: center;
+
+        .invite-logo {
+            width: 120px;
+            height: 119px;
+            background: url(../images/invite-logo.png) no-repeat;
+            background-size: 120px;
+            margin: 0 auto;
+        }
+
+        .invite-title {
+            font-family: PingFangHK-Medium;
+            font-size: 48px;
+            color: #333333;
+            margin: 40px auto 20px;
+        }
+        .invite-total {
+            font-size: 48px;
+            color: #24AFE7;
+        }
+        .invite-tips {
+            font-family: PingFangHK-Regular;
+            font-size: 24px;
+            color: #4A4A4A;
+        }
+        .invite-no {
+            font-size: 24px;
+            color: #24AFE7;
+        }
+    }
+
+    .invite-rules {
+        background: #FFFFFF;
+        box-shadow: 0 10px 30px 0 rgba(213,213,213,0.50);
+        border-radius: 20px;
+        padding: 10px 60px 40px 50px;
+        font-size: 28px;
+        color: #333333;
+
+        .invite-item {
+            padding: 30px 10px;
+            border-bottom: 1px solid #E5E5E5;
+        }
+    }
+    .invite-btn {
+        background: #24AFE7;
+        box-shadow: 0 4px 14px 0 #B5B5B5;
+        border-radius: 100px;
+        width: 600px;
+        height: 98px;
+        line-height: 98px;
+        text-align: center;
+        margin: 134px auto 0;
+        font-family: PingFangTC-Medium;
+        font-size: 32px;
+        color: #FFFFFF;
+    }
+    .copy-popup {
+        background: #FFFFFF;
+        border-radius: 20px;
+        padding: 75px 0;
+        position: absolute;
+        width: 670px;
+        height: 419px;
+        top: 50%;
+        left: 50%;
+        transform: translate3d(-50%, -50%, 0);
+        text-align: center;
+    }
+    .copy-title {
+        font-size: 42px;
+        color: #333333;
+    }
+    .copy-subtitle {
+        font-size: 28px;
+        color: #4A4A4A;
+        margin: 22px 0 50px;
+    }
+    .copy-btn {
+        width: 360px;
+        height: 98px;
+        line-height: 98px;
+        border: 1px solid #24AFE7;
+        border-radius: 100px;
+        text-align: center;
+        font-size: 32px;
+        color: #24AFE7;
+        margin: 0 auto;
+    }
+}

@@ -1,0 +1,74 @@
+<!--pages/addressList/addressList.wxml-->
+<view class="superView">
+  <view style="  margin-top: 0rpx;height: 1px;margin-left: 0rpx;margin-right: 0rpx;background: #f0f0f0;"></view>
+  <view class="addressItem" wx:for="{{addressList}}">
+    <block wx:if="{{!item.isAllow}}">
+      <view style="height:auto;display:flex;align-items:center">
+
+        <block wx:if="{{item.is_default}}">
+          <view>
+            <image src="/images/addressDefault@2x.png" class="imgItemLeft">
+            </image>
+          </view>
+        </block>
+        <block wx:else>
+         
+  
+          <view style="width:32rpx;height:32rpx;background:white;border-style:solid;border-width:1rpx;border-color:#e3e3e3;margin-left:30rpx;border-radius:50%" catchtap="clickDefault" data-idx="{{index}}" data-item="{{item}}">
+          
+          </view>
+          
+        </block>
+        
+        <view class="viewItemCenter" bindtap="addressClick" data-idx="{{index}}" data-item="{{item}}">
+          <view>
+            <text style="font-size:32rpx;color:#333">{{item.receive_name}}</text>
+            <text style="font-size:32rpx;color:#333;margin-left:10rpx">{{ item.receive_mobile}}</text>
+          </view>
+          <view style="display:flex;align-items:center;height:50rpx">
+            <text style="font-size:24rpx;color:#333">{{item.receive_province}}{{item.receive_city}}{{item.receive_district}}{{item.receive_address}}</text>
+          </view>
+          
+        </view>
+        <view bindtap="addressClick" data-idx="{{index}}" data-item="{{item}}">
+          <image src="/images/addressEdit@2x.png" class="imgItemRight" mode="aspectFill"></image>
+        </view>
+        <view style="width:60rpx;height:60rpx;display:flex;align-items:center;justify-content:center;margin-right:30rpx" catchtap="deleteAddress" data-item="{{item}}">
+          <image src="https://ctb-public-file.oss-cn-beijing.aliyuncs.com/shop/shanchu%402x.png" style="width:28rpx;height:32rpx"></image>
+        </view>
+      </view>
+
+    </block>
+    <block wx:else>
+      <view class="notAllowAddress">
+        <image src="" class="notImgItemLeft"></image>
+        <view class="notViewItemCenter">
+          <view>
+            <text style="font-size:32rpx;color:#999">{{item.name}}</text>
+            <text style="font-size:32rpx;color:#999;margin-left:10rpx">{{item.mobile}}</text>
+          </view>
+          <text style="font-size:24rpx;color:#999">{{item.address}}</text>
+          <text style="font-size:24rpx;background:#fb7982;color:white;width: 240rpx;text-align: center;border-radius: 10rpx;margin-top: 10rpx">此区域不支持配送</text>
+        </view>
+        <image src="" class="notImgItemRight"></image>
+      </view>
+    </block>
+
+    <view class="line"></view>
+
+
+  </view>
+
+
+
+  <view class="addAddress" bindtap="createAddress">
+    <image class="imgbottom" src="/images/tianjia@2x.png"></image>
+    <text class="textBottom">添加新地址</text>
+  </view>
+  <view class="line"></view>
+  <view class="addAddress" bindtap="wechatAddress">
+    <image class="imgbottom" src="/images/weixin1@2x.png"></image>
+    <text class="textBottom">微信地址导入</text>
+  </view>
+  <view class="line"></view>
+</view>

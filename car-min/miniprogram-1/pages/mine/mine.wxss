@@ -1,0 +1,160 @@
+
+/**mine.wxss**/
+
+.myhead{
+  display: flex;
+  width:100vw;
+  height:303rpx;
+  background:rgba(244,58,65,1);
+
+}
+.bottomMyHead{
+  border-bottom-left-radius:10%;
+  border-bottom-right-radius:10%;
+}
+.vipMyHead{
+  display: flex;
+  flex-direction: column;
+  width:700rpx;
+  height:380rpx;
+  background:rgba(244,58,65,1);
+  margin-left:25rpx;
+  /* margin-top: 25rpx; */
+  border-radius: 20rpx; 
+}
+
+.loginBtn{
+  width: 300rpx;
+  height: 120rpx;
+  background: transparent;
+  color:white;
+  font-size: 48rpx;
+  margin-top: 70rpx;
+  margin-left: 0rpx;
+}
+
+
+/* //中间会员卡 */
+.bottomMemberMark{
+  margin-left: 5vw;
+  margin-top: -50rpx;
+  width:90vw;
+  height:120rpx;
+  background:rgba(255,255,255,1);
+  border-radius:20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+/* 中间订单css */
+.orderItem{
+  display: flex;
+  flex-direction: column;
+  /* background: lightgreen; */
+  /* margin-left:20rpx;
+  margin-right: 20rpx; */
+  width: 140rpx;
+  height: 195rpx;
+  justify-content: center;
+  align-items: center;
+
+}
+.orderItem image{
+  margin-bottom: 20rpx;
+}
+.orderMark{
+  width: 20rpx;
+  height: 20rpx;
+  border-radius: 50%;
+  border-style: solid;
+  border-width: 1rpx;
+  font-size:24rpx;
+  border-color: #ff7b7d;
+  color: #ff7b7d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1001;
+  /* margin-left: 30rpx; */
+  /* margin-top: 30rpx; */
+
+  /* position: relative; */
+  padding: 5rpx;
+  margin-left: 35rpx;
+  margin-top:-15rpx;
+  position: absolute;
+  
+    /* width: 100%; */
+    /* padding-top: 38rpx; */
+
+
+}
+
+/* 绑定关系 */
+.bindRelation{
+  height: 230rpx;
+  width: 750rpx;
+  background: white;
+  display: flex;
+  flex-direction: column;
+} 
+
+/* 常用功能之下css */
+.bottomView{
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+}
+.viewBottomBigItem{
+  width: 750rpx;
+  height: 110rpx;
+  display: flex;
+  flex-direction: column;
+}
+.viewBottomItem{
+  width: 750rpx;
+  height: 108rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.bottomText{
+  margin-left: 30rpx;
+  width: 580rpx;
+}
+.bottomHead{
+  width: 60rpx;
+  height: 60rpx;
+  margin-left: 30rpx;
+}
+.arrow{
+  width: 7px;
+  height: 12px;
+}
+
+.col-100 {
+  width: 100vw;
+  background-color: #FFFFFF;
+  height: 110rpx;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.contacButton {
+  /* 设置背景无色 */
+  background-color: transparent;
+  /* padding: 0;
+  margin: 0; */
+  font-size: inherit;
+  height: 110rpx;
+  z-index: 999;
+  width: 750rpx;
+  display: flex;
+  margin-top:-110rpx;
+}
+ 
+.contacButton::after {
+  border: #FFF none;
+}

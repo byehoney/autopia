@@ -1,0 +1,370 @@
+<!--pages/goodDetail/goodDetail.wxml-->
+<import src="../../wxParse/wxParse.wxml" />
+<view class="whiteSuperView" style="display:flex;flex-direction:column">
+  <view class="headImageClass" style="display:flex;justify-content:center;align-items:center">
+    <!-- <image src="{{}}" style="width:700rpx;height:700rpx;background:gray" mode="aspectFill"></image> -->
+    <swiper indicator-dots="{{indicatorDots}}"
+      autoplay="{{autoplay}}" interval="5000" duration="500" style="width:700rpx;height:700rpx" circular="true">
+      <block wx:for="{{goodInfo.picture}}" wx:key="*this">
+        <swiper-item>
+          <image src="{{item}}" style="width:700rpx;height:700rpx;background:gray" mode="aspectFill"></image>
+        </swiper-item>
+      </block>
+    </swiper>
+
+  </view>
+
+  
+  <view class="priceView" style="display:flex;flex-direction:row;justify-content:space-between;height:100rpx;align-items:center">
+    <view style="width:570rpx;margin-left:20rpx;display: flex;align-items: center;">
+      <text style="font-size:44rpx;font-family:PingFangSC-Medium,PingFang SC;font-weight:500;color:rgba(244,62,69,1);line-height:80rpx;-webkit-background-clip:text;margin-right:20rpx" wx:if="{{is_vip}}">¥{{sku_item.vip_price}}</text>
+      <text style="font-size:44rpx;font-family:PingFangSC-Medium,PingFang SC;font-weight:500;color:rgba(244,62,69,1);line-height:80rpx;-webkit-background-clip:text;margin-right:20rpx" wx:else>{{sku_item.ordinary_price}}</text>
+      <block wx:if="{{is_vip}}">
+
+        <view style="background:#f43c43;;display:flex;align-items:center;justify-content:center;height:30rpx">
+          <text style="font-size:20rpx;color:white;padding-left:6rpx;padding-right:6rpx">最高返</text>
+        </view>
+        
+        <view style="background:white;display:flex;align-items:center;justify-content:center;border-style:solid;border-width:1rpx;border-left:1rpx;border-color:#f43c43;height:30rpx">
+            <text style="font-size:20rpx;color:#f43c43;padding-left:6rpx;padding-right:6rpx">{{sku_item.cash_back_price}}元</text>
+    
+        </view>
+        <!-- vip不显示共省 -->
+        <!-- <text style="margin-left:20rpx;font-size:24rpx;font-family:PingFangSC-Medium,PingFang SC;font-weight:500;color:rgba(244,61,68,1);line-height:33px;">共省{{sku_item.economize_price}}</text> -->
+
+      </block>
+      <block wx:else>
+          <view style="width:315rpx;height:50rpx;margin-top:10rpx;display:flex;align-items:center" class="goodVip">
+              <view style="background:#e3c48c;border-radius:5rpx;width:55rpx;display:flex;align-items:center;justify-content:center;margin-right:5rpx">
+                <text style="font-size:20rpx;color:white">vip</text>
+          
+              </view>
+              <text style="font-size:26rpx;color:#e3c48c;margin-right:5rpx;">¥{{sku_item.vip_price}}</text>
+              
+              <view style="background:#f43c43;;display:flex;align-items:center;justify-content:center">
+                <text style="font-size:20rpx;color:white;padding-left:6rpx;padding-right:6rpx">再返</text>
+              </view>
+              
+              <view style="background:white;display:flex;align-items:center;justify-content:center;border-style:solid;border-width:1rpx;border-left:1rpx;border-color:#f43c43">
+                  <text style="font-size:20rpx;color:#f43c43;padding-left:6rpx;padding-right:6rpx">{{sku_item.cash_back_price}}元</text>
+          
+              </view>
+
+          </view>
+      </block>
+ 
+    </view>
+
+    <text style="font-size:26rpx;color:#999;margin-right:20rpx">已售{{goodInfo.sales_volume}}件</text>
+  </view>
+  <view class="nameView" style="display:flex;flex-direction:row;justify-content:space-between;align-items:center">
+      <view class="goodTitle" style="margin-left:20rpx">
+        <text style="font-size:32rpx;color:#333">{{goodInfo.goods_name}}</text>
+      </view>
+      <view bindtap="shareSelect" style="width:60rpx;height:60rpx;display:flex;justify-content:center">
+        <image src="../../images/fenxiang@2x.png" style="width:43rpx;height:43rpx;margin-right:20rpx"></image>
+      </view>
+  </view>
+
+  <view wx:if="{{!is_vip}}" class="noVip" style="width:710rpx;height:75rpx;border-radius:20rpx;background:#231f1c;display:flex;align-items:center;margin-left:20rpx;justify-content:space-between" bindtap="openVip">
+    <view style="margin-left:20rpx;display:flex;align-items:center">
+      <image src="/images/v@2x.png" style="width:23rpx;height:19rpx"></image>
+      <text style="font-size:22rpx;color:#d6ccbf">现在开通会员立减{{sku_item.economize_price}}元！</text>
+    </view>
+    <view style="margin-right:20rpx;display:flex;align-items:center">
+      <text style="font-size:22rpx;color:#d6ccbf">开通会员 ></text>
+    </view>
+    
+
+  </view>
+
+
+  <view wx:else  class="yesVip"   style="width:710rpx;height:75rpx;border-radius:20rpx;background:#f43e45;display:flex;align-items:center;margin-left:20rpx;justify-content:space-between" bindtap="openVip">
+      <view style="margin-left:20rpx;display:flex;align-items:center">
+        
+        <text style="font-size:22rpx;color:white">成功邀请好友最多可赚{{sku_item.invite_user_back_price}}元！</text>
+      </view>
+      <view style="margin-right:20rpx;display:flex;align-items:center">
+        <text style="font-size:22rpx;color:white">邀请好友 ></text>
+      </view>
+      
+
+  </view>
+ 
+
+
+  <view class="labelView" style="display:flex;height:90rpx;justify-content:space-between;align-items:center">
+
+      <scroll-view style="width:550rpx;margin-left:20rpx;align-items:center;display: flex" scroll-x>
+
+        <block wx:for="{{service_promise}}">
+
+          <image src="../../images/gouxuan@2x.png" style="width:24rpx;height:24rpx"></image>
+          <text style="font-size:22rpx;color:#353535;margin-right:10rpx">{{item}}</text>
+        </block>
+
+     </scroll-view>
+
+
+      <view bindtap="labelClick"  style="width:80rpx;height:80rpx;display:flex;align-items:center;justify-content:center">
+        <text style="color:#bcbcbc;margin-right:30rpx">...</text>
+      </view>
+      
+
+
+  </view>
+  <view class="postTitle" style="display:flex;height:50rpx;">
+    <text style="font-size:22rpx;color:#888;margin-left:20rpx">{{goodInfo.place_delivery}}</text>
+  </view>
+
+  <view class="headSeg"></view>
+  <view class="choiceType" style="height:110rpx;display:flex;justify-content:space-between;align-items:center" bindtap="styleClick">
+     <view style="width:450rpx;margin-left:20rpx">
+        <text style="font-size:26rpx;color:#888">请选择</text>
+        <text style="margin-left:20rpx;color:#0c0c0c;font-size:26rpx">{{sku_item.sku_name}}</text>
+     </view>
+
+      <view bindtap="styleClick"  style="width:80rpx;height:100rpx;display:flex;align-items:center;justify-content:center">
+        <text style="color:#bcbcbc;margin-right:30rpx">...</text>
+      </view>
+    
+  </view>
+
+  <view class="headSeg"></view>
+
+  <view class="moreStyle">
+    <text style="margin-left:20rpx;font-size:30rpx;color:#333;height:90rpx;display:flex;align-items:center">更多推荐</text>
+    <view style="display:flex">
+
+      <block wx:for="{{randomList}}">
+        <view class="moreStyleItem" style="height:530rpx;width:345rpx;display:flex;flex-direction:column;margin-left:20rpx" bindtap="itemClick" data-idx="{{index}}" data-item="{{item}}">
+          <image src="{{item.picture}}" style="width:345rpx;height:345rpx;border-radius:10rpx" mode="aspectFill"></image>
+            <view class="moreStyleName" style="margin-top:20rpx">
+              <text style="font-size:30rpx;color:#333">{{item.goods_name}}</text>
+            </view>
+
+            <view class="moreStylePrice" style="display:flex;align-items:center">
+              <text wx:if="{{is_vip}}" style="font-size:34rpx;color:#ff3b30">¥{{item.vip_price}}</text>
+              <text wx:else style="font-size:34rpx;color:#ff3b30">¥{{item.ordinary_price}}</text>
+              <view style="background:#f43c43;margin-left:20rpx;display:flex;justify-content:space-around">
+                <text style="color:white;font-size:20rpx;margin:5rpx">省¥{{item.economize_price}}</text>
+              </view>
+            </view>
+
+        </view>
+      </block>
+      
+    </view>
+  </view>
+
+  <view class="headSeg"></view>
+
+  <view class="bottomView">
+    <view style="height:100rpx;display:flex;align-items:center;justify-content:center;width:750rpx">
+      <text style="font:34rpx;color:#333">商品详情</text>
+    </view>
+
+    <view style="width:750rpx;height:auto">
+      
+    
+      <view class="imgDetail"><template is="wxParse" data="{{wxParseData:article.nodes}}" /></view>
+
+    </view>
+  </view>
+
+  <view style="height:90rpx"></view>
+
+  <view class="bottomPurchse">
+      <view style="display:flex;width:550rpx;height:100rpx;align-items:center">
+        <view class="bottomImg" style="display:flex;flex-direction:column;align-items:center;width:100rpx" bindtap="homeClick">
+          <image src="/images/shouye@2x.png" style="width:31rpx;height:34rpx"></image>
+          <text style="font-size:20rpx;color:#333">首页</text>
+        </view>
+
+        <!-- <view class='col-100'> -->
+          <view class="bottomImg" style="display:flex;flex-direction:column;align-items:center;width:100rpx;position:relative">
+            <image src="/images/goodKefu@2x.png" style="width:35rpx;height:34rpx"></image>
+            <text style="font-size:20rpx;color:#333">客服</text>
+
+            <button open-type="contact" class='contacButton' style="position:absolute;top:-20rpx;width:100rpx;height:60rpx;background-color: transparent"></button>
+
+          </view>
+        
+        </view>
+       
+      <!-- </view> -->
+
+      <view style="position:relative">
+        <view style="width:250rpx;height:100rpx;background:#f53f46;display:flex;justify-content:center;align-items:center" bindtap="immediatePurchase">
+          <text style="font-size:36rpx;color:white">立即购买</text>
+
+        </view>
+
+          <!-- 没有绑定手机号时购买需要获取手机号 -->
+          <block wx:if="{{!mobile}}">
+              <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" class="contacButton" style="position:absolute;width: 230rpx;background-color: transparent;height:100rpx;bottom: 0rpx"></button>
+          </block>
+
+      </view>
+
+  </view>
+
+  <view class="blackBackground-screen" wx:if="{{shareSelect}}" bindtap="cancelShare" catchtouchmove="myCatchTouch">
+ 
+  </view>
+
+  <view class="content_box" wx:if="{{shareSelect}}" catchtouchmove="myCatchTouch">
+    <view class="model-view">
+      <view style="width:750rpx;display:flex;justify-content:flex-end" bindtap="cancelShare">
+
+        <image src="https://ctb-public-file.oss-cn-beijing.aliyuncs.com/shop/guanbi%402x.png" style="width:25rpx;height:25rpx;margin-right:30rpx;margin-top:20rpx"></image>
+      </view>
+
+      <view style="display:flex;justify-content:center;margin-top:20rpx">
+        <text style="font-size:30rpx;color:#666"> —————— 分享至 —————— </text>
+      </view>
+
+      <view style="display:flex;align-items:center;justify-content:center;margin-top:60rpx">
+        <view  style="margin-right:30rpx;">
+          <image src="/images/weixin@2x.png" style="width:100rpx;height:100rpx;"></image>
+          <button open-type="share" style="background-color:transparent;width: 100rpx;height: 100rpx;display: flex;margin-top: -100rpx;"></button>
+          
+        </view>
+        <view style="margin-left:30rpx;" bindtap="eventDraw">
+          <image src="/images/fenxiangtu@2x.png" style="width:100rpx;height:100rpx;"></image>
+        </view>
+
+      </view>
+
+    </view>
+
+  </view>
+
+  <view class="blackBackground-screen" wx:if="{{drawSelect}}" bindtap="cancelShare" catchtouchmove="myCatchTouch">
+  </view>
+
+  <view class="draw_box" wx:if="{{drawSelect}}" bindtap="cancelShare" catchtouchmove="myCatchTouch">
+      
+    
+    <image src="{{shareImage}}" class="share-image"></image>
+    <canvasdrawer painting="{{painting}}" class="canvasdrawer" bind:getImage="eventGetImage"/>
+    <view style="display:flex;margin-top:30rpx;margin-bottom:50rpx;width:70rpx;height:70rpx;margin-left:340rpx" bindtap="eventSave">
+      <image src="/images/baocun@2x.png" style="width:70rpx;height:70rpx"></image>
+    </view>
+  </view>
+
+  <view class="blackBackground-screen" wx:if="{{styleSelect}}" bindtap="cancelShare" catchtouchmove="myCatchTouch">
+  </view>
+
+  <view class="style_box" wx:if="{{styleSelect}}" catchtouchmove="myCatchTouch">
+      
+    
+
+      <view style="display:flex;width:750rpx;height:190rpx">
+
+
+        <view style="width:400rpx;height:170rpx;display:flex;flex-direction:column;margin-left:280rpx;margin-top:10rpx;justify-content:space-between">
+            <text wx:if="{{is_vip}}" style="font-size:36rpx;color:#ff3b30">¥{{sku_item.vip_price}}</text>
+            <text wx:else style="font-size:36rpx;color:#ff3b30">¥{{sku_item.ordinary_price}}</text>
+            
+           
+            <view style="display:flex;align-items:center" wx:if="{{is_vip}}">
+              
+              
+
+              <view style="background:#f43c43;;display:flex;align-items:center;justify-content:center;height:30rpx">
+                <text style="font-size:20rpx;color:white;padding-left:6rpx;padding-right:6rpx">最高返</text>
+              </view>
+              
+              <view style="background:white;display:flex;align-items:center;justify-content:center;border-style:solid;border-width:1rpx;border-left:1rpx;border-color:#f43c43;height:30rpx;margin-right:10rpx">
+                  <text style="font-size:20rpx;color:#f43c43;padding-left:6rpx;padding-right:6rpx">{{sku_item.cash_back_price}}元</text>
+              </view>
+              <text style="font-size:24rpx;color:#ff3b30">共省{{sku_item.economize_price}}</text>
+
+            </view>
+            <text style="font-size:24rpx;color:#999;display:flex">库存{{sku_item.stock}}</text>
+        </view>
+
+        <view style="width:50rpx;display:flex;height:50rpx;align-items: center;justify-content: center;margin-top: 10rpx;" bindtap="cancelShare">
+
+          <image src="https://ctb-public-file.oss-cn-beijing.aliyuncs.com/shop/guanbi%402x.png" style="width:25rpx;height:25rpx" mode="appectFill"></image>
+        </view>
+
+
+      </view>
+
+      <view class="line"></view>
+
+      <view class="styleColorAndsize" style="display:flex;flex-direction:column;height:auto">
+
+        <block wx:for="{{specs_list}}" wx:for-index="row" wx:for-item="obj">
+        
+          <text style="font-size:26rpx;color:#636363;margin-left:30rpx;margin-top:20rpx;height:30rpx;">{{obj.spesc_name}}</text>
+          <view class="styleColor" style="display:flex;flex-direction:row;height:100rpx">
+              <block wx:for="{{obj.list}}">
+                
+
+                <view wx:if="{{obj.index==index}}" data-idx="{{index}}" data-row="{{row}}" data-item="{{item}}" style="border-style:solid;border-width:1px;border-color:#ff3b30;border-radius:6rpx;display: flex;align-items: center;margin-left: 30rpx;height: 70rpx;margin-top: 20rpx;" catchtap="selectStyle">
+                  <text style="font-size:28rpx;color:#ff3b30;padding-left:10rpx;padding-right:10rpx">{{item.name}}</text>
+               
+                </view>
+                
+                <view  wx:else data-idx="{{index}}" data-row="{{row}}" data-item="{{item}}" style="background:#f8f8f8;border-radius:6rpx;display: flex;align-items: center;margin-left: 30rpx;height: 70rpx;margin-top: 20rpx;" catchtap="selectStyle">
+                   <text style="font-size:28rpx;color:#333;padding-left:10rpx;padding-right:10rpx">{{item.name}}</text>
+                </view>
+                
+              </block>
+          </view>
+
+        </block>
+
+
+        <!-- </scroll-view> -->
+        <view wx:if="{{spesc_list.length!=0}}" class="line"></view>
+
+        <view class="styleColor" style="display:flex;flex-direction:row;height:100rpx;justify-content:space-between;align-items:center">
+            <text style="font-size:26rpx;color:#636363;margin-left:30rpx">购买数量</text>
+            <view style="display:flex;margin-right:30rpx">
+                <view style="width:50rpx;height:50rpx;display:flex;background:#f0f0f0;border-radius:50%;align-items:center;justify-content:center" bindtap="minusClick">
+                  <text style="color: #999;margin-bottom: 5rpx;">-</text>
+                </view>
+
+                <view style="width:100rpx;display:flex;justify-content:center">
+                  <text style="font-size:30rpx;color:#333">{{goodCount}}</text>
+                </view>
+                
+                <view style="width:50rpx;height:50rpx;display:flex;background:#f0f0f0;border-radius:50%;align-items:center;justify-content:center" bindtap="addClick">
+                  <text style="color: #999;margin-bottom: 5rpx;">+</text>
+                </view>
+            </view>
+
+        </view>
+        
+
+        <view style="position:relative">
+          <view class="styleColor" style="display:flex;flex-direction:row;height:100rpx;background:#fe747b;align-items:center;justify-content:center" bindtap="purchseImmediate">
+            <text style="font-size:36rpx;color:white">立即购买</text>
+          </view>
+        </view>
+
+          <!-- 没有绑定手机号时购买需要获取手机号 -->
+        <block wx:if="{{!mobile}}">
+            <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" class="contacButton" style="position:absolute;width: 750rpx;background-color: transparent;height:100rpx;bottom: 0rpx"></button>
+        </block>
+      </view>
+      
+
+  </view>
+
+
+  <view  class="image_Box" wx:if="{{styleSelect}}" style="bottom:{{220+specs_list.length*150}}rpx">
+    <image style="width:230rpx;height:230rpx;" mode="aspectFill" src="{{styleImg}}"></image>
+  </view>
+  
+
+</view>
+ 
+
+
+
+ 

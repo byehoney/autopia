@@ -1,0 +1,18 @@
+$color-main:red;
+$themes: (
+  red: (
+    font-color: #fff,
+    bg-color:red,
+    act-color:#fff
+  ),
+  green: (
+    font-color: #fff ,
+    bg-color:green,
+    act-color:blue
+  ),
+  blue: (
+    font-color: #fff,
+    bg-color:blue,
+    act-color:red
+  ),
+);

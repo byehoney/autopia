@@ -1,0 +1,8 @@
+<!--pages/CLIST//pages/group/groupList.wxml-->
+<!-- productList:productList, -->
+<import src="../../../public/warning.wxml" />
+<import src="../component/groupProductTpl.wxml"></import><!-- 商品分组3 -->
+  <template is="goods_group4_tpl" data="{{content:shopHomeData,currentTab:currentTab,keyword:keyword,winWidth:winWidth,  store_nav_list,themeColorValue,BASE_IMG_URL,field_type:'goods_group4',mode_tyle,load_txt,show_index_img:shopHomeData.show_index_img,last_index,make_fiex,cur_index,comFrom,showSearch:true}}"
+  />
+
+<template is="warning" wx:if="{{warning.warningShow}}" data="{{warningTxt:warning.warningTxt}}" />

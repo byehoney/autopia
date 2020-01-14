@@ -1,0 +1,32 @@
+/**app.wxss**/
+.superView{
+  background: #f8f8f8;
+  height: 100vh;
+}
+.whiteSuperView{
+  background:white;
+  height: auto;
+}
+.headSeg{
+  background: #f8f8f8;
+  height: 20rpx;
+}
+.line{
+  margin-top: 0rpx;
+  height: 1px;
+  
+  margin-left: 30rpx;
+  margin-right: 0rpx;
+  background: #f0f0f0;
+}
+.lineAll{
+  margin-top: 0rpx;
+  height: 1px;
+  margin-left: 0rpx;
+  margin-right: 0rpx;
+  background: #f0f0f0;
+}
+
+button::after {
+  border: none
+}

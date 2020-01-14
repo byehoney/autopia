@@ -1,0 +1,412 @@
+.prod-list {
+  width: 690px;
+  margin: 0px auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding-top: 40px;
+  .list-view-section-body {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .prod-item {
+    position: relative;
+    width: 330px;
+    height: 558px;
+    background: #fff;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 30px;
+    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.16);
+  }
+  .item-image {
+    width: 310px;
+    height: 310px;
+  }
+  .item-title {
+    font-family: PingFangSC-Medium;
+    font-size: 32px;
+    color: #333333;
+    letter-spacing: 2px;
+    margin: 10px 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .item-count {
+    font-size: 20px;
+    color: #b5b5b5;
+    letter-spacing: 1.25px;
+    margin-bottom: 10px;
+  }
+  .item-zuan {
+    padding-left: 40px;
+    font-family: PingFangSC-Medium;
+    font-size: 24px;
+    color: #24afe7;
+    letter-spacing: 1.5px;
+    background: url(../images/price-icon.png) no-repeat;
+    background-size: 26px;
+    margin-bottom: 25px;
+    background-position: left center;
+  }
+  .item-zuan .jia {
+    color: black;
+  }
+  .item-zuan .price {
+    color: #ff913a;
+    margin-left: 5px;
+  }
+  .item-zuan.no-bg {
+    background: none;
+    padding-left: 0;
+  }
+  .dh-btn {
+    background: #24afe7;
+    box-shadow: 0 2px 8px 0 rgba(154, 154, 154, 0.5);
+    border-radius: 10px;
+    font-size: 28px;
+    color: #ffffff;
+    width: 220px;
+    height: 52px;
+    line-height: 52px;
+    text-align: center;
+    margin: 0 auto;
+    font-family: PingFangSC-Medium;
+  }
+  .label {
+    font-family: PingFangHK-Medium;
+    font-size: 24px;
+    color: #ffffff;
+    letter-spacing: 1px;
+    width: 80px;
+    height: 40px;
+    line-height: 40px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    text-align: center;
+  }
+  .tuijian {
+    background: #ff345e;
+  }
+  .xianliang {
+    background: #7f00ee;
+  }
+  .new {
+    background: #11b7e3;
+  }
+}
+.prod-detail {
+  .prod-main {
+    padding-bottom: 280px;
+    background:#f8f8f8;
+  }
+  .prod-info {
+    padding: 20px 40px 26px 60px;
+    background: #fff;
+  }
+  .prod-name {
+    font-size: 38px;
+    color: #333333;
+    margin-bottom: 8px;
+  }
+  .prod-count {
+    display: flex;
+    justify-content: space-between;
+    font-size: 24px;
+    color: #9b9b9b;
+  }
+  .prod-count span {
+    color: #24AFE7;
+  }
+  .prod-zuan {
+    padding-left: 40px;
+    font-size: 24px;
+    color: #24AFE7;
+    letter-spacing: 1.5px;
+    background: url(../images/price-icon.png) no-repeat;
+    background-size: 26px;
+    background-position: left center;
+  }
+  .record-list {
+    margin-top: 30px;
+    padding: 32px 40px;
+    background: #fff;
+    padding-bottom: 50px;
+  }
+  .record-title {
+    font-size: 30px;
+    color: #7f00ee;
+    margin-bottom: 20px;
+  }
+  .icon-title {
+    background-image: linear-gradient(-45deg, #d33bff 0%, #3d4fff 100%);
+    width: 7px;
+    height: 28px;
+    margin-right: 20px;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .record-item {
+    padding: 10px 0;
+    border-bottom: 2px solid #d7d9db;
+    display: flex;
+    justify-content: space-between;
+    font-size: 24px;
+    color: #333333;
+    align-items: center;
+  }
+  .item-name {
+    font-size: 30px;
+    line-height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .item-name img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-right: 26px;
+  }
+  .record-item .time {
+    font-family: PingFangSC-Regular;
+    font-size: 22px;
+    color: #9b9b9b;
+    letter-spacing: 1.16px;
+  }
+  .bottom {
+    width: 100%;
+    height: 280px;
+    background: #fff;
+    position: fixed;
+    bottom: 0;
+    font-size: 24px;
+    color: #9b9b9b;
+    text-align: center;
+    padding-top: 40px;
+    z-index: 100;
+  }
+  .dh-btn {
+    background: #24AFE7;
+    box-shadow: 0 10px 20px 0 rgba(12,88,119,0.24);
+    border-radius: 100px;
+    width: 600px;
+    height: 98px;
+    line-height: 98px;
+    margin: 20px auto;
+    font-size: 30px;
+    color: #ffffff;
+    text-align: center;
+  }
+  .dhFoot img {
+    width: 22px;
+    height: 23px;
+  }
+  .dhFoot {
+    width: 690px;
+    position: relative;
+    height: 98px;
+    text-align: left;
+    line-height: 98px;
+    background: #333333;
+    padding-left: 40px;
+    color: white;
+  }
+  .dhFoot > span {
+    font-size: 28px;
+    color: #ffffff;
+    letter-spacing: 1.56px;
+  }
+  .dhFoot2 {
+    width: 296px;
+    height: 110px;
+    text-align: center;
+    line-height: 110px;
+    font-size: 38px;
+    color: #ffffff;
+    position: absolute;
+    top: -10px;
+    right: 0;
+    letter-spacing: 2.11px;
+    background-image: url(../images/an1.png);
+    background-size: 100%;
+  }
+
+  .bottomDh .xieyi {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: PingFangHK-Regular;
+    font-size: 22px;
+    color: #9b9b9b;
+    letter-spacing: 0.69px;
+    padding-bottom: 40px;
+    margin-top: 22px;
+  }
+  .bottomDh {
+    width: 690px;
+    position: fixed;
+    bottom: 0px;
+    left: 30px;
+  }
+  .cbg {
+    width: 18px;
+    height: 18px;
+    background: url(../images/cb.png) no-repeat;
+    background-size: contain;
+    margin-right: 8px;
+  }
+  #cb:checked + .cbg {
+    background-image: url(../images/cb-checked.png);
+  }
+}
+.dhShop{
+  .alladdress{
+    width: 670px;
+    height: 377px;
+    margin-left: 40px;
+    margin-top: 60px;
+    background: #FFFFFF;
+    box-shadow: 0 7px 20px 0 rgba(197,197,197,0.50);
+    border-radius: 20px;
+    margin-bottom: 40px;
+    .detailaddress{
+      padding-top: 30px;
+    }
+    .name span{
+      width: 0;
+      height: 0;
+      border: 20px solid #D1EFFC;
+      border-left-color: #D1EFFC;
+      border-bottom: none;
+      border-top-color: transparent;
+      border-right-color: transparent;
+      transform:rotate(225deg)
+    }
+    >div{
+      width: 600px;
+      margin-left: 35px;
+      display: flex;
+      align-items: center;
+        .leftadd{
+          width: 112px;
+          margin-right: 18px;
+          font-family: PingFangSC-Regular;
+          font-size: 28px;
+          color: #8F8F8F;
+          letter-spacing: 0;
+      }
+      .rightadd{
+        flex: 1;
+        font-family: PingFangSC-Regular;
+        font-size: 28px;
+        color: #333333;
+        letter-spacing: 2px;
+      }
+    }
+    .name{
+      border-bottom: 2px solid  #EFEFEF;
+      height: 110px;
+      line-height: 100px;
+    }
+    .phone{
+      height: 100px;
+      border-bottom: 2px solid  #EFEFEF;
+    }
+  }
+  .address{
+    font-family: PingFangHK-Regular;
+    font-size: 32px;
+    color: #24AFE7;
+    letter-spacing: -0.71px;
+    font-weight: 600;
+    padding-left: 80px;
+    margin-top: 30px;
+    span{
+      font-size: 40px;
+      margin-right: 10px;
+    }
+  }
+  padding-top: 40px;
+  .dhFoot img {
+    width: 22px;
+    height: 23px;
+  }
+  .dhFoot {
+    width: 690px;
+    position: fixed;
+    height: 98px;
+    text-align: left;
+    line-height: 98px;
+    background: #333333;
+    padding-left: 40px;
+    color: white;
+    bottom: 60px;
+    left: 30px;
+    img{
+      width: 26px;
+      height: 26px;
+      margin-right: 15px;
+    }
+  }
+  .dhFoot > span {
+    font-size: 28px;
+    color: #ffffff;
+    letter-spacing: 1.56px;
+    display: flex;
+    align-items: center;
+     
+  }
+  .dhFoot2 {
+    width: 296px;
+    height: 110px;
+    text-align: center;
+    line-height: 110px;
+    font-size: 38px;
+    color: #ffffff;
+    position: absolute;
+    top: -10px;
+    right: 0;
+    letter-spacing: 2.11px;
+    background-image: url(../images/an1.png);
+    background-size: 100%;
+    
+  }
+  .nav{
+    width: 670px;
+    margin-left: 40px;
+    background: #F8FBFC;
+    padding: 30px;
+    display: flex;
+  }
+  .left img{
+    width: 182px;
+    height: 182px;
+    margin-right: 40px;
+  }
+  .right{
+    font-family: PingFangSC-Regular;
+    font-size: 28px;
+    color: #6E8085;
+    letter-spacing: 0;
+    line-height: 40px;
+  }
+  .right p{
+    font-family: PingFangSC-Medium;
+    font-size: 28px;
+    color: #24AFE7;
+    letter-spacing: 0;
+    margin-top:35px;
+    display: flex;
+    align-items: center;
+  }
+  .right p img{
+    width: 26px;
+    height: 26px;
+    margin-right: 10px;
+  }
+
+}

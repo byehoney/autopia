@@ -1,0 +1,10 @@
+/* pages/submitOrder/submitOrder.wxss */
+.bottomPurchse{
+  position: fixed;
+  height: 100rpx;
+  width: 750rpx;
+  bottom: 0rpx;
+  background:white;
+  z-index: 99;
+  display: flex;
+}

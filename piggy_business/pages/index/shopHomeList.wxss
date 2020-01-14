@@ -1,0 +1,7 @@
+/* pages/index/shopHomeList.wxss */
+.shopDetailsInfo .li {display: flex;align-items: center;}
+.shopHomeList .li.open:before {content: '';display:none;}
+.shopDetailsInfo .li>view:first-child {width:80%;}
+.shopDetailsInfo .li .span {margin:0;width:20%;text-align:right;}
+.shopDetailsInfo .li .span .shop_sign {height:30rpx;line-height:30rpx;padding:0 15rpx;font-size:24rpx;border:1px solid #F6A414;color:#F6A414;border-radius:20rpx;display:inline-flex;}
+.shopDetailsInfo .li .span .shop_sign.shop_sign_close {border-color:#999;color:#999;}

@@ -1,0 +1,45 @@
+/* pages/couponDetail/couponDetail.wxss */
+.couponVip{
+    background: url('https://ctb-public-file.oss-cn-beijing.aliyuncs.com/shop/couponVip%402x.png');
+    width: 690rpx;
+    height: 170rpx;
+    margin-left: 30rpx;
+    background-size: 100% 100%;
+    display: flex;
+    align-items: center;
+
+}
+.couponNone{
+    background: url('https://ctb-public-file.oss-cn-beijing.aliyuncs.com/shop/couponNone%402x.png');
+    width: 690rpx;
+    height: 170rpx;
+    margin-left: 30rpx;
+    background-size: 100% 100%;
+
+}
+.coupon{
+    background: url('https://ctb-public-file.oss-cn-beijing.aliyuncs.com/shop/coupon%402x.png');
+    width: 690rpx;
+    height: 170rpx;
+    margin-left: 30rpx;
+    background-size: 100% 100%;
+    display: flex;
+}
+.couponBottom{
+  width:690rpx;
+  background-color:#f8f8f8;
+  display: flex;
+  flex-direction: column;
+  margin-left:30rpx;
+  height: auto;
+
+  /*最重要的部分如下：*/
+    background-image: radial-gradient(circle at 12rpx 6rpx ,transparent 0%, transparent 6px,#fff 6px, #fff 100%);
+    background-position: 678rpx 0rpx;
+    border-radius: 14rpx;
+
+    /* 说明：radial-gradient()：css3的径向渐变，可用于创建图像。上面那串代码简单来说就是以448rpx,260rpx为圆心画圆，在8px为半径以内的为透明色，8px以外的为#fff
+而background-position就是圆心的距离，显示起来就是一个圆分隔成两个半圆分别显示在两边。基本就是这样啦 */
+
+
+}

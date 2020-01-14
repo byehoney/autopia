@@ -1,0 +1,48 @@
+@import "../../wxss/goods_category.wxss";
+
+/**自营标签**/
+
+.right_container .ziying {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40rpx;
+  height: 30rpx;
+  line-height: 30rpx;
+  font-size: 14rpx;
+  color: white;
+  text-align: center;
+}
+
+/* 新增 */
+
+.category_second.new-add {
+  position: relative;
+}
+
+.category_second.new-add .no-types-box {
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  width: 200rpx;
+  height: 200rpx;
+  margin-left: -80rpx;
+  margin-top: -100rpx;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.no-types {
+  width: 220rpx;
+  height: 179rpx;
+  margin-bottom: 20rpx;
+  opacity: 0.4;
+}
+
+.category_second.new-add .no-types-box>text {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #bbb;
+  letter-spacing: 5rpx;
+}

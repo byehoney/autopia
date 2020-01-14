@@ -1,0 +1,23 @@
+<!--pages/withDrawRule/withDrawRule.wxml-->
+<view class="container">
+  <view class="main">
+    <view class="ruleItem">
+      1、提现条件，所销售商品已经确认收货且已过7天无理由退货时间
+    </view>
+    <view class="ruleItem">
+      2、每次提现最小单位为一百元
+    </view>
+    <view class="ruleItem">
+      3、提现时间固定为每周的周三，除此时间段外不得提现
+    </view>
+    <view class="ruleItem">
+      4、提现方式仅为微信提现，不支持银行卡提现
+    </view>
+    <view class="ruleItem">
+      5、每周提现金额不超过5000元
+    </view>
+    <view class="ruleItem">
+      6、个人提现时开车必用依法代扣个人所得税
+    </view>
+  </view>
+</view>

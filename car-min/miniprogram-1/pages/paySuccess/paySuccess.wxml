@@ -1,0 +1,97 @@
+<!--pages/paySuccess/paySuccess.wxml-->
+<view class="whiteSuperView">
+
+  <block wx:if="{{!isSuccess}}">
+    <view class="payHead" style="display:flex;flex-direction:column;align-items: center;">
+      <image src="/images/payFail.png" style="width:161rpx;height:170rpx;margin-top:50rpx;margin-bottom:30rpx" ></image>
+      <text style="font-size:32rpx;color:#333">未完成支付</text>
+      <text style="font-size:22rpx;color:#999">请在30分钟内完成支付，若超时，订单将被取消</text>
+
+      <view style="display:flex;flex-direction:row;align-items:center;margin-top:10rpx">
+        <text style="font-size:26rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:#949494;">剩余时间:</text>
+        <text class='text1'>{{qgdjs_jo.min}}</text>
+        <text class='time1'>分</text>
+        <text class='text1'>{{qgdjs_jo.sec}}</text>
+        <text class='time1'>秒</text>
+      </view>
+
+      <view bindtap="payImmediate" style="width:550rpx;height:80rpx;background:#fe747b;border-radius:20rpx;display:flex;align-items:center;justify-content: center;margin-top:50rpx;">
+        <text style="color:white;font:30rpx">立即支付</text>
+      </view>
+
+      <view bindtap="clickCancelOrder" style="width:550rpx;height:80rpx;background:#white;border-radius:20rpx;display:flex;align-items:center;justify-content:center;border-style:solid;border-width:1rpx;border-color:#fe747b;margin-top:20rpx">
+        <text style="color:#fe747b;font-size:30rpx">取消订单</text>
+      </view>
+    </view>
+
+  </block>
+  <block wx:else>
+      <view class="payHead" style="display:flex;flex-direction:column;align-items: center;">
+        <image src="/images/paySuccess.png" style="width:160rpx;height:168rpx;margin-top:50rpx;margin-bottom:30rpx"></image>
+        <text style="font-size:32rpx;color:#333">支付成功</text>
+        <text style="font-size:22rpx;color:#999">所购商品将会尽快安排发货，进入我的订单关注物流信息</text>
+
+        <view bindtap="goHome" style="width:550rpx;height:80rpx;background:#fe747b;border-radius:20rpx;display:flex;align-items:center;justify-content: center;margin-top:50rpx;">
+          <text style="color:white;font:30rpx">返回主页</text>
+        </view>
+
+        <view bindtap="goMyOrder" style="width:550rpx;height:80rpx;background:#white;border-radius:20rpx;display:flex;align-items:center;justify-content:center;border-style:solid;border-width:1rpx;border-color:#fe747b;margin-top:20rpx">
+          <text style="color:#fe747b;font-size:30rpx">我的订单</text>
+        </view>
+      </view>
+
+
+  </block>
+
+    <view style="width:750rpx;display:flex;justify-content:center;margin-top:70rpx;">
+      <text style="color:#f43e45;font-size:28rpx"> ---更多推荐--- </text>
+    </view>
+        
+    <block wx:for="{{randomList}}">
+      <view class="foodItem" bindtap="goodDetail" data-idx="{{index}}" data-item="{{item}}">
+        <image style="width:250rpx;height:250rpx;margin-right:20rpx;margin-left:30rpx;border-radius:10rpx" mode="aspectFill" src="{{item.picture}}"></image>
+        <view class="goodsItemRight">
+          <view class="goodTitle">
+            <text style="font-size:32rpx;color:#333" class="goodItemName">{{item.goods_name}}</text>
+          </view>
+
+          <view class="goodLabel" style="height:50rpx;margin-top:-20rpx;">
+            <text style="font-size:24rpx;color:#999">{{item.service_promise}}</text>
+          </view>
+
+          <view wx:if="{{item.vip_price.value!=0}}" style="width:430rpx;height:50rpx;display:flex" class="goodVip">
+              <view style="background:#e3c48c;border-radius:5rpx;width:80rpx;display:flex;align-items:center;justify-content:center;margin-right:10rpx">
+                <text style="font-size:20rpx;color:white">vip价</text>
+          
+              </view>
+              
+              <view style="background:#f43c43;;display:flex;align-items:center;justify-content:center">
+                <text style="font-size:20rpx;color:white;padding-left:6rpx;padding-right:6rpx">再返</text>
+              </view>
+              
+              <view style="background:white;display:flex;align-items:center;justify-content:center;border-style:solid;border-width:1rpx;border-left:1rpx;border-color:#f43c43">
+                  <text style="font-size:20rpx;color:#f43c43;padding-left:6rpx;padding-right:6rpx">{{item.cash_back_price}}元</text>
+          
+              </view>
+
+          </view>
+          <view wx:else style="width:430rpx;height:60rpx"></view>
+
+          <view class="goodBottom" style="display:flex;align-items:flex-end;justify-content:space-between;height:100rpx">
+          
+              <!-- width: 200rpx -->
+            <text style="font-size:40rpx;color:#f53d44;">¥{{item.ordinary_price}}</text>
+
+            <!-- //width: 120rpx -->
+            <text style="font-size:24rpx;color:#969696;text-decoration:line-through;height: 45rpx;">市场价¥{{item.market_price}}</text>
+            <view style="border-width:thin;border-color:#ff383f;border-radius:10rpx;border-style: solid;display: flex;" catchtap="purchseClick" data-idx="{{index}}" data-item="{{item}}">
+              <text style="color:#ff383f;font-size:28rpx;margin-right:10rpx;margin-left:10rpx">购买</text>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="line"></view>
+    </block>
+
+
+</view>

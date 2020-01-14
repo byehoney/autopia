@@ -1,0 +1,76 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/activity/activity",
+    "pages/timingAct/timingAct",
+    "pages/classify/classify",  
+    "pages/goodList/goodList", 
+    "pages/searchList/searchList",
+    "pages/goodDetail/goodDetail",
+    "pages/submitOrder/submitOrder",
+    "pages/paySuccess/paySuccess",
+    "pages/member/member",
+    "pages/vipGift/vipGift",
+    "pages/insurance/insurance",
+    "pages/selectDiscount/selectDiscount",
+    "pages/mine/mine",
+    "pages/mineEdit/mineEdit",
+    "pages/nameEdit/nameEdit",
+    "pages/orderList/orderList",
+    "pages/addressList/addressList",
+    "pages/addressEdit/addressEdit",
+    "pages/orderDetail/orderDetail",
+    "pages/inviteShip/inviteShip",
+    "pages/myAccount/myAccount",
+    "pages/withDraw/withDraw",
+    "pages/withDrawSucc/withDrawSucc",
+    "pages/withDrawRule/withDrawRule", 
+    "pages/couponList/couponList",
+    "pages/couponDetail/couponDetail" 
+
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "开车必用",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "backgroundColor": "#fff",
+    "color": "#8D8D8D",
+    "selectedColor": "#1C1C1C",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "./images/n_home.png",
+        "selectedIconPath": "./images/n_home_act.png"
+      },
+      
+      {
+        "pagePath": "pages/classify/classify",
+        "text": "分类",
+        "iconPath": "./images/n_class.png",
+        "selectedIconPath": "./images/n_class_act.png"
+       
+      },
+      {
+        "pagePath": "pages/member/member",
+        "text": "会员",
+        "iconPath": "./images/tabVip@2x.png",
+        "selectedIconPath": "./images/tabVip@2x.png"
+       
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的",
+        "iconPath": "./images/n_my.png",
+        "selectedIconPath": "./images/n_my_act.png"
+        
+      }
+    ]
+  },
+  
+  "sitemapLocation": "sitemap.json"
+}

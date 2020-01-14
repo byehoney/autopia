@@ -1,0 +1,32 @@
+.dhsuccess{
+    width: 100vw;
+    padding-top: 166px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    img{
+        width: 200px;
+        height: 268px;
+    }
+    p{
+        font-family: PingFangHK-Light;
+        font-size: 34px;
+        color: #333333;
+        letter-spacing: 0;
+        margin: 120px 0px;
+        width: 100%;
+        text-align: center;
+    }
+    .go{
+        border: 2px solid #24AFE7;
+        border-radius: 100px;
+        width: 600px;
+        height: 98px;
+        font-family: PingFangTC-Medium;
+                font-size: 32px;
+                color: #24AFE7;
+                letter-spacing: 2.51px;
+                text-align: center;
+                line-height: 98px;
+    }
+}

@@ -1,0 +1,128 @@
+.search-warp{
+  padding: 0 24rpx;
+	height: 130rpx;
+  overflow: hidden;
+	background-color: #ffffff;
+}
+.search_area{
+  display: flex;
+  align-items: center;
+	height: 72rpx;
+  margin: 29rpx 0;
+  padding: 0 32rpx;
+	background-color: #efefef;
+	border-radius: 36px;
+}
+.search_area .input-icon{
+  font-size:50rpx;
+  margin-right: 15rpx;
+}
+.search_area input{
+  font-size: 26rpx;
+}
+.search_area input::placeholder{
+  color: #999;
+}
+.commander-content-wrap{
+  padding: 0 30rpx;
+  margin-top: 20rpx;
+  overflow: hidden;
+  background: #ffffff;
+}
+.commander-card{
+	height: 250rpx;
+  margin: 28rpx 0 40rpx;
+  padding: 0 20rpx;
+	background-color: #ffffff;
+	box-shadow: 0px 0px 17px 1px 
+		rgba(216, 216, 216, 0.68);
+	border-radius: 20rpx;
+  overflow: hidden;
+}
+.commander-card-top{
+  margin:40rpx 0 48rpx;
+  overflow: hidden;
+}
+.commander-card-icon{
+  width: 96rpx;
+	height: 96rpx;
+  float: left;
+	background-color: #cce198;
+  border-radius: 50%;
+}
+.commander-card-address{
+  float: left;
+  width: 280rpx;
+  margin-left: 22rpx;
+}
+.commander-card-address text{
+  display: block;
+}
+.commander-card-address text:nth-of-type(1){
+  margin-bottom: 22rpx;
+  font-size: 32rpx;
+	color: #202020;
+}
+.commander-card-address text:nth-of-type(2)
+{
+  font-size: 24rpx;
+	color: #999999;
+}
+.commander-card-opeartion{
+  float: right;
+}
+.commander-card-item{
+  float: left;
+  width: 72rpx;
+	text-align: center;
+}
+.commander-card-item:nth-child(2){
+  margin-left: 22rpx;
+}
+.commander-card-item image{
+  display: block;
+  width: 46rpx;
+	height: 46rpx;
+  background: #000;
+  border-radius: 50%;
+  margin:0 auto 12rpx;
+}
+.commander-card-item text{
+  display: block;
+  font-size: 18rpx;
+	color: #666666;
+}
+.buying-preson-wrap{
+  float: right
+}
+.buying-preson-box{
+  float: left;
+  display: flex;
+  align-items: center;
+  margin-right: 10rpx;
+}
+.buying-preson-box image{
+  width: 34rpx;
+	height: 34rpx;
+  margin-right: 8rpx;
+  border-radius: 50%;
+	background-color: #cce198;
+}
+.buying-preson-box text{
+  width: 62rpx;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  font-size: 22rpx;
+  line-height: 34rpx;
+	color: #666666;
+}
+.lookmore{
+  float: right;
+  line-height: 34rpx;
+  font-size: 22rpx;
+	color: #666666;
+}
+.lookmore icon{
+  float: right;
+}

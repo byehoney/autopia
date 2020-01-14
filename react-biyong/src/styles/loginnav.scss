@@ -1,0 +1,57 @@
+.mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba($color: #000000, $alpha: 0.6);
+    z-index: 200;
+    display: none;
+}
+.mask.show {
+    display: block;
+}
+.login-popup {
+    background: #FFFFFF;
+    border-radius: 20px;
+    padding: 56px 100px 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    width: 670px;
+    text-align: center;
+    font-family: PingFangHK-Regular;
+}
+.login-title {
+    font-size: 34px;
+    color: #333333;
+}
+.login-subtitle {
+    font-size: 24px;
+    color: #B5B5B5;
+    margin: 14px 0 80px;
+}
+.login-pbg {
+    width: 208px;
+    height: 140px;
+    background: url(../images/login-popup.png) no-repeat;
+    background-size: 208px;
+    margin: 0 auto 90px;
+}
+.login-btns {
+    display: flex;
+    height: 48px;
+    line-height: 48px;
+    font-size: 34px;
+    color: #B5B5B5;
+}
+.login-btn {
+    width: 235px;
+}
+.login-btn:first-child {
+    border-right: 1px solid #CCCCCC;
+}
+.login-btn.blue {
+    color: #24AFE7;
+}

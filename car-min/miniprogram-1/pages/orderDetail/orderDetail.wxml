@@ -1,0 +1,102 @@
+<!--pages/orderDetail/orderDetail.wxml-->
+<view class="container">
+  <!-- 头部信息 -->
+  <view class="header">
+    <view class="title">{{status_str}}</view>
+    <view class="time">{{created_at}}</view>
+  </view>
+  <!-- 物流信息 -->
+  <view class="orderInfo">
+    <view class="infoItem" wx:if="{{order_package}}">
+      <view class="left">
+        <image class="icon" src="../../images/order/kuaidi.png"></image>
+        <view class="infoBox">
+          <view class="top">{{order_package.express_company}}</view>
+          <view class="bottom">{{order_package.express_no}}</view>
+        </view>
+      </view>
+      <view data-number="{{order_package.express_no}}" class="right" bindtap="doCopy">复制单号</view>
+    </view>
+    <view class="infoItem" wx:if="{{order_addr}}">
+      <view class="left">
+        <image class="icon" src="../../images/order/dizhi.png"></image>
+        <view class="infoBox">
+          <view class="top">{{order_addr.receive_name}} {{order_addr.receive_mobile}}</view>
+          <view class="bottom">{{order_addr.receive_province}}{{order_addr.receive_city}}{{order_addr.receive_district}}{{order_addr.receive_address}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 商品信息 -->
+  <view class="goodsArea">
+    <view class="goodsInfo" wx:for="{{order_goods}}" wx:for-item="item" wx:for-index="index" wx:key="{{item.order_id}}">
+      <view class="goodsImgBox">
+        <image mode="aspectFill" class="goodsImg" src="{{item.pic_cover_small}}"></image>
+      </view>
+      <view class="goodsInfoBox">
+        <view class="infoTop">
+          <view class="infoLeft">{{item.goods_name}}</view>
+          <view class="infoRight">
+            <view class="price">¥{{item.pay_fee}}</view>
+            <view class="num">x{{item.quantity}}</view>
+          </view>
+        </view>
+        <view class="size" wx:if="{{item.sku_name}}">{{item.sku_name}}</view>
+      </view>
+    </view>
+
+    <view class="priceItem">
+      <view class="left">商品总价</view>
+      <view class="right">￥{{goods_fee}}</view>
+    </view>
+    <view class="priceItem">
+      <view class="left">运费(快递)</view>
+      <view class="right">￥{{express_fee}}</view>
+    </view>
+    <view class="priceItem">
+      <view class="left">优惠活动</view>
+      <view class="right">-￥{{discount_fee}}</view>
+    </view>
+    <!-- <view class="priceItem">
+      <view class="left">账户余额抵扣</view>
+      <view class="right">￥1283.84</view>
+    </view> -->
+    <view class="priceItem total">
+      <view class="left">订单总价</view>
+      <view class="right">￥{{total_fee}}</view>
+    </view>
+    <view class="priceItem real">
+      <view class="left">实付款</view>
+      <view class="right">￥{{pay_fee}}</view>
+    </view>
+  </view>
+  <!-- 订单信息详情 -->
+  <view class="orderArea">
+    <view class="title">订单信息</view>
+    <view class="orderItem">
+      <view>订单编号：{{order_no}}</view>
+      <view class="copy" data-number="{{order_no}}" bindtap="doCopy">复制</view>
+    </view>
+    <view class="orderItem">
+      交易单号：{{master_order_no}}
+    </view>
+    <view class="orderItem" wx:if="{{created_at}}">
+      创建时间：{{created_at}}
+    </view>
+    <view class="orderItem" wx:if="{{pay_at}}">
+      付款时间：{{pay_at}}
+    </view>
+    <view class="orderItem" wx:if="{{delivery_at}}">
+      发货时间：{{delivery_at}}
+    </view>
+    <view class="orderItem" wx:if="{{confirm_at}}">
+      完成时间：{{confirm_at}}
+    </view>
+  </view> 
+  <!-- 联系客服 -->
+  <view class="kfArea">
+    <button open-type="contact" class="btn"></button>
+    <image class="icon" src="https://ctb-public-file.oss-cn-beijing.aliyuncs.com/shop/kf_icon_u.png"></image>
+    <text>联系客服</text>
+  </view>
+</view>

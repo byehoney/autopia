@@ -1,0 +1,104 @@
+<!--pages/goodList/goodList.wxml-->
+<view class="whiteSuperView">
+
+    <view class="head">
+
+      <scroll-view style="display:flex;">
+      <block wx:for="{{headType}}">
+        <view class="header-item" bindtap="header_click" data-idx="{{index}}" data-item="{{item}}" style="flex:{{headType.length}};display: inline-flex">
+
+          <view class="segment-item">
+
+
+            <text wx:if="{{index==topIndex}}" style="font-size:34rpx;color:#333">{{item.cate_name}}</text>
+            <text wx:else style="font-size:30rpx;color:#b5b5b5">{{item.cate_name}}</text>
+          </view>
+          <view wx:if="{{index==topIndex}}" style="background:#ff787d;height:10rpx;width:60rpx;position: absolute;bottom:0rpx;">
+          </view>
+
+        </view>
+      </block>
+    </scroll-view>
+    </view>
+    <view style="height:110rpx"></view>
+
+
+    <view style="height:80rpx;display:flex;justify-content:flex-end;align-items:center;position: fixed;width: 750rpx;background: white;margin-top:-2rpx;" bindtap="priceSort">
+        <text style="font-size:26rpx;margin-right:10rpx">{{ascendingOrder?"价格升序":"价格降序"}}</text>
+        <image src="{{ascendingOrder?'https://ctb-public-file.oss-cn-beijing.aliyuncs.com/shop/up%402x.png':'https://ctb-public-file.oss-cn-beijing.aliyuncs.com/shop/down%402x.png'}}" style="width:18rpx;height:20rpx;margin-right: 30rpx;"></image>
+    </view>
+
+    <view style="height:80rpx"></view>
+    <!-- <view style="height:250rpx;width:704rpx;margin-left:23rpx;background:red"></view>
+    <view style="height:215rpx;width:704rpx;margin-left:23rpx;background:lightGray"></view> -->
+
+    <view class="lineAll"></view>
+    <block wx:for="{{goodsList}}">
+
+
+      <view class="foodItem" catchtap="goodDetail" data-idx="{{index}}" data-item="{{item}}">
+        <image style="width:250rpx;height:250rpx;margin-right:20rpx;margin-left:30rpx;border-radius:10rpx" mode="aspectFill" src="{{item.picture}}"></image>
+        <view class="goodsItemRight">
+          <view class="goodTitle" style="margin-top:10rpx">
+            <text style="font-size:32rpx;color:#333" class="goodItemName">{{item.goods_name}}</text>
+          </view>
+
+          <view class="goodLabel" style="height:50rpx;margin-top:10rpx;">
+            <text style="font-size:24rpx;color:#999">{{item.service_promise}}</text>
+          </view>
+
+          <view wx:if="{{is_vip}}" style="width:430rpx;height:50rpx;margin-top:10rpx;display:flex" class="goodVip">
+              <view style="background:#e3c48c;border-radius:5rpx;width:80rpx;display:flex;align-items:center;justify-content:center;margin-right:10rpx">
+                <text style="font-size:20rpx;color:white">vip价</text>
+          
+              </view>
+              
+              <view style="background:#f43c43;;display:flex;align-items:center;justify-content:center">
+                <text style="font-size:20rpx;color:white;padding-left:6rpx;padding-right:6rpx">再返</text>
+              </view>
+              
+              <view style="background:white;display:flex;align-items:center;justify-content:center;border-style:solid;border-width:1rpx;border-left:1rpx;border-color:#f43c43">
+                  <text style="font-size:20rpx;color:#f43c43;padding-left:6rpx;padding-right:6rpx">{{item.cash_back_price}}元</text>
+          
+              </view>
+
+          </view>
+          <view wx:else style="width:430rpx;height:50rpx;margin-top:10rpx"></view>
+
+          <view class="goodBottom" style="display:flex;align-items:flex-end;justify-content:space-between;height:100rpx">
+          
+              <!-- width: 200rpx -->
+            
+            <text  wx:if="{{is_vip}}" style="font-size:40rpx;color:#f53d44;">¥{{item.vip_price}}</text>
+            <text wx:else style="font-size:40rpx;color:#f53d44;">¥{{item.ordinary_price}}</text>
+
+            <!-- //width: 120rpx -->
+            <text style="font-size:24rpx;color:#969696;text-decoration:line-through;height: 45rpx;">市场价¥{{item.market_price}}</text>
+          
+              <!-- 没有绑定手机号时购买需要获取手机号 -->
+            <!-- <block wx:if="{{!mobile}}">
+              <view style="border-width:thin;border-color:#ff383f;border-radius:10rpx;border-style: solid;display: flex;"  data-idx="{{index}}" data-item="{{item}}">
+                <text style="color:#ff383f;font-size:28rpx;margin-right:10rpx;margin-left:10rpx">购买</text>
+      
+                <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" class="contacButton"></button>
+              </view>
+            </block> -->
+
+            <!-- <block  wx:else> -->
+            <view style="border-width:thin;border-color:#ff383f;border-radius:10rpx;border-style: solid;display: flex;" catchtap="purchseClick" data-idx="{{index}}" data-item="{{item}}">
+              <text style="color:#ff383f;font-size:28rpx;margin-right:10rpx;margin-left:10rpx">购买</text>
+            </view>
+            <!-- </block> -->
+
+
+
+          </view>
+        </view>
+
+      </view>
+            
+      <view class="line"></view>
+    </block>
+
+ 
+</view>

@@ -1,0 +1,84 @@
+/* pages/addressList/addressList.wxss */
+.superView{
+  background: #fff;
+}
+.addressItem{
+  height: auto;
+  display: flex;
+  flex-direction: column;
+
+}
+.imgItemLeft{
+  height: 36rpx;
+  width: 36rpx;
+  /* background: lightpink; */
+  margin-left: 30rpx;
+  /* border-radius: 50%; */
+}
+.imgItemRight{
+  height: 38rpx;
+  width: 34rpx;
+  /* background: lightblue; */
+  margin-right: 30rpx;
+  margin-left: 30rpx;
+  /* border-radius: 50%; */
+
+}
+.viewItemCenter{
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin-left: 30rpx;
+  margin-top: 15rpx;
+  margin-bottom: 15rpx;
+}
+.addAddress{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 100rpx;
+ 
+}
+.imgbottom{
+  height: 32rpx;
+  width: 32rpx;
+  /* background: gray; */
+  margin-left: 30rpx;
+  border-radius: 50%;
+}
+
+.textBottom{
+  font-size: 26rpx;
+  color: #333;
+  margin-left: 30rpx;
+}
+.notAllowAddress{
+  height:auto;
+  display:flex;
+  align-items:center;
+  /* //background: red; */
+
+}
+.notImgItemLeft{
+  height: 50rpx;
+  width: 50rpx;
+  background: lightgray;
+  margin-left: 30rpx;
+  border-radius: 50%;
+}
+.notViewItemCenter{
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin-left: 30rpx;
+  margin-top: 15rpx;
+  margin-bottom: 15rpx;
+}
+.notImgItemRight{
+  height: 50rpx;
+  width: 50rpx;
+  background: lightblue;
+  margin-right: 30rpx;
+  margin-left: 30rpx;
+  border-radius: 50%;
+}

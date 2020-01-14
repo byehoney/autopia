@@ -1,0 +1,63 @@
+<!--pages/addressEdit/addressEdit.wxml-->
+<view class="superView">
+  <view class="headSeg"></view>
+  <view class="content">
+    <view class="viewItem" style="display:flex;align-items:center;height:110rpx;background:white">
+      <text class="leftInfo">收货人</text>
+      <input class="name-input" bindinput="bindKeyInput" maxlength="25"  placeholder="请输入真实名字" placeholder-style="font-size:28rpx;color:#c0c0c0" style="font-size:28rpx;color:#333;width:500rpx" data-prop="name" value="{{name}}"></input>
+    </view>
+    <view class="line"></view>
+
+    <view class="viewItem" style="display:flex;align-items:center;height:110rpx;background:white">
+      <text class="leftInfo">联系电话</text>
+      <input class="name-input" bindinput="bindKeyInput" maxlength="11"  placeholder="请输入联系电话" placeholder-style="font-size:28rpx;color:#c0c0c0" style="font-size:28rpx;color:#333;width:500rpx" value="{{mobile}}" data-prop="mobile"></input>
+    </view>
+    <view class="line"></view>
+
+    <view class="viewItem" style="display:flex;align-items:center;height:110rpx;background:white">
+      <text class="leftInfo">省市区</text>
+      <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}" style="width:500rpx">
+        <view class="picker" style="font-size:28rpx;color:#333">
+          {{data.province}}，{{data.city}}，{{data.district}}
+        </view>
+      </picker>
+
+    </view>
+    <view class="line"></view>
+
+
+    <view class="viewItem" style="display:flex;align-items:center;height:110rpx;background:white">
+      <text class="leftInfo">详细地址</text>
+      <input class="name-input" bindinput="bindKeyInput"  placeholder="请输入详细地址" placeholder-style="font-size:28rpx;color:#c0c0c0" style="font-size:28rpx;color:#333;width:500rpx" data-prop="address" value="{{address}}"></input>
+    </view>
+    <view class="line"></view>
+
+    <!-- <view class="viewItem" style="display:flex;align-items:center;height:110rpx;background:white">
+      <text class="leftInfo">门牌号</text>
+      <input class="name-input" bindinput="bindKeyInput"  placeholder="请输入门牌号" placeholder-style="font-size:28rpx;color:#c0c0c0" style="font-size:28rpx;color:#333;width:500rpx" data-prop="houseNumber"></input>
+    </view> -->
+    <view class="headSeg"></view>
+
+
+    <view class="viewItem" style="display:flex;align-items:center;height:110rpx;background:white;width:750rpx">
+      <text class="leftInfo">设为默认地址</text>
+       <switch bindchange="switch2Change" class="addressSwitch" color="#f5444b" checked="{{isDefult}}"/>
+    </view>
+
+  </view>
+
+  
+</view>
+
+<block wx:if="{{!isSave}}">
+  <view class="bottomSave">
+    <text style="font-size:34rpx;color:white;display: flex;justify-content: center;align-items: center;margin-top: 25rpx;">保存收货信息</text>
+  </view>
+</block>
+<block wx:else>
+  <view class="bottomSave saveAdd">
+    <text style="font-size:34rpx;color:white;display: flex;justify-content: center;align-items: center;margin-top: 25rpx;" bindtap="saveBtn">保存收货信息</text>
+  </view>
+  
+</block>
+

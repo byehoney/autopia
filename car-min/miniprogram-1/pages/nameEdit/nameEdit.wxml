@@ -1,0 +1,16 @@
+<!--pages/nameEdit/nameEdit.wxml-->
+<view class="superView">
+  <view class="headSeg"></view>
+  <view class="wxui">
+    <input class="name-input" bindinput="bindKeyInput" maxlength="8"   placeholder="请输入8字以内的昵称" />
+  </view>
+   
+    <block wx:if="{{name.length==0}}">
+      <button  bindtap="save" class="saveBtn" style="background:#ccc" > 保存 </button>
+   </block>
+   <block wx:else>
+         <button  bindtap="save" class="saveBtn" style="background-color:#f43a41" > 保存 </button>
+   </block>
+
+
+</view>

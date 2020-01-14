@@ -1,0 +1,9 @@
+{
+  "extEnable": true,
+  "extAppid": "wx0ec0c1e00272518f",
+  "ext": {
+    "apiUrl": "https://tshop.chetuobang.com/",
+    "token": 3,
+    "type": 1
+  }
+}

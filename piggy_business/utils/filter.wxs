@@ -1,0 +1,408 @@
+function parseFrequency(frequency) {
+    switch (parseInt(frequency)) {
+        case 1:
+            return "每天"
+        case 2:
+            return "每周"
+        case 3:
+            return "每月"
+    }
+}
+
+function parseDeliverDate(index, frequency) {
+    switch (parseInt(frequency)) {
+        case 1:
+            return "每天"
+        case 2:
+            var seconds = ["周一", "周二", "周三", "周四", "周五", "周六", "周日"];
+            return seconds[parseInt(index) - 1]
+        case 3:
+            return index + "号"
+    }
+}
+
+function parseProLong(num) {
+    switch (parseInt(num)) {
+        case -1:
+            return "不限制次数"
+        case 0:
+            return "不允许顺延"
+        default:
+            return "最多顺延" + num + "次"
+    }
+}
+
+//获取周期购时间线中的日期
+function parseOrderPaidTime(str) {
+    var time = getDate('20' + str.replace('/','-'))
+    var day = time.getDay()
+    if(day ===0)day = 7;
+    var weekDay = parseDeliverDate(day, 2)
+    return str + ' ' + weekDay
+}
+
+//获取周期购的状态
+
+function parseOrderPaidStatus(str, filed) {
+    filed = filed || 'statusClass'
+    var statusData = {};
+    switch (parseInt(str)) {
+        case -1:
+            statusData =  {
+                statusName: "已延期",
+                statusClass: "delay"
+            }
+            break;
+        case 0:
+            statusData =  {
+                statusName: "待配送",
+                statusClass: "unsended"
+            }
+            break;
+        case 1:
+            statusData = {
+                statusName: '已配送',
+                statusClass: 'sended'
+            }
+            break;
+    }
+    return statusData[filed]
+}
+//周期购中判断是否提前配送
+
+function judgePreSend(item) {
+    if(item.status != 1){
+        return ""
+    }
+    var paid_time = getDate('20' + item.paid_time);
+    var send_time = getDate(item.real_time);
+    return paid_time > send_time ? "（提前配送）" : ""
+}
+
+function parseDeliverOrderInfo(item){
+    var frequency = parseFrequency(item.type)
+    switch (parseInt(item.type)) {
+        case 1:
+            return frequency;
+        case 2:
+            var time = getDate('20' + item.paid_time.replace('/','-'))
+            var day = time.getDay()
+            if(day ===0)day = 7;
+            var weekDay = parseDeliverDate(day, 2)
+            return frequency + weekDay
+        case 3:
+            var monthDay = item.paid_time.split('/')[2]
+            return frequency + monthDay + "号";
+    }
+}
+
+function chunk(array, size) {
+    size = Math.max(size, 0)
+    var length = array == null ? 0 : array.length
+    if (!length || size < 1) {
+        return []
+    }
+    var index = 0
+    var resIndex = 0
+    var result = []
+
+    while (index < length) {
+        result[resIndex++] = array.slice(index, (index += size))
+    }
+    return result
+}
+
+
+var getPageUrl = function (pageType, pigcms_id) {
+    var pageTypes = {
+        '1': '/pages/presale/index?id=',
+        '2': '/pages/details/index?tuan_id=',
+        '4': '/pages/bargain/details?id=',
+        '5': '/pages/seckill/index?id='
+    }
+    return pageTypes[('' + pageType)] + ('' + pigcms_id);
+};
+
+var getFixedPrice = function (price) {
+    if (typeof price == 'number') {
+        return price.toFixed(2)
+    } else if (typeof price == 'string') {
+        return parseFloat(price, 2)
+    }
+}
+//转换较大的单位为w
+var transBigNumber = function(number,nodecimal){
+    number = parseFloat(number)
+    if(number > 10000){
+        if(nodecimal == 1 || number % 10000 === 0){
+            var num = parseFloat(number / 10000).toString()
+            if(num.indexOf('.') > 0){
+                var splitNum = num.split('.')
+                num = splitNum[0]+'.'+(splitNum[1] + '00').slice(0,2)
+            }
+            return num + "万"
+        }
+        return Math.floor(parseFloat(number / 10000)).toFixed(2) + "万"
+    }
+    return number
+}
+function formatNumber(n) {
+    n = n.toString()
+    return n[1] ? n : '0' + n
+}
+
+function formatTime(date,num) {
+    var year = date.getFullYear()
+    var month = date.getMonth() + 1
+    var day = date.getDate()
+    var arr = []
+    switch(num){
+        case 1:
+            arr = [year]
+            break;
+        case 2:
+            arr = [year, month]
+            break;
+        case 3:
+            arr = [year, month, day]
+            break;
+    }
+    return arr.map(formatNumber).join('-')
+}
+function parseEarliestDeliverDate(product,deliver_date){
+    var deliver_config = product.deliver_config
+    var earlyDay = (deliver_date || product.deliver_date[0]) * 1
+    var deliver_frequency = product.deliver_frequency * 1
+    var prevDaysNum = deliver_config[0]*1
+    var prevHour = deliver_config[1]*1
+    var nowTime = getDate();
+    var nowTimestamp = nowTime.getTime();
+    var nowHour = nowTime.getHours();
+    var perDayMs = 24 * 60 * 60 * 1000
+    var deliverTimestamp = nowTimestamp
+    var expectDeliverDatetime = getDate(nowTimestamp + prevDaysNum * perDayMs)
+    if(nowHour >= prevHour){
+        expectDeliverDatetime = getDate(expectDeliverDatetime.getTime() + perDayMs)
+    }
+    switch (deliver_frequency) {
+        case 1:
+            if(nowHour < prevHour){
+                deliverTimestamp = nowTimestamp + prevDaysNum * perDayMs
+            }else{
+                deliverTimestamp = nowTimestamp + (prevDaysNum + 1) * perDayMs
+            }
+            break;
+        case 2://每周配送
+            var expectWeekDay = expectDeliverDatetime.getDay()
+            if(expectWeekDay==0)expectWeekDay = 7;
+            if(earlyDay < expectWeekDay){
+                deliverTimestamp = getDate(expectDeliverDatetime.getTime() + (earlyDay + 7 - expectWeekDay) * perDayMs).getTime()
+            } else {
+                deliverTimestamp = getDate(expectDeliverDatetime.getTime() + (earlyDay - expectWeekDay) * perDayMs).getTime()
+            }
+            break;
+        case 3://test 每月20日配送，需要提前50天，10点之前预定，今天是15号，今天9点预定，最早几号送货
+            if(expectDeliverDatetime.getDate() > earlyDay){
+                var formatedTime = formatTime(getDate(expectDeliverDatetime.getTime() + 30 * perDayMs), 2).split('-')
+                deliverTimestamp = getDate(formatedTime[0],formatedTime[1]-1, earlyDay).getTime()
+                // return formatedTime[0] + '-' + formatedTime[1]
+            }else{
+                var formatedTime2 = formatTime(expectDeliverDatetime, 2).split('-')
+                deliverTimestamp = getDate(formatedTime2[0], formatedTime2[1]-1,earlyDay).getTime()
+            }
+            break;
+    }
+    return formatTime(getDate(deliverTimestamp),3)
+}
+
+function parseProductCouponTypeTitle(coupon) {
+    var type = parseInt(coupon.type)
+    // 1优惠券2团购券3折扣券4'礼品券,5代金券,6特殊券,7景点票,
+    switch (type) {
+        case 1:
+            return {
+                title: "优惠详情",
+                content: coupon.default_detail
+            }
+        case 2:
+            return {
+                title: "团购详情",
+                content: coupon.deal_detail
+            };
+        case 3:
+            return {
+                title: "折扣券",
+                content: coupon.discount + "折"
+            };
+        case 4:
+            return {
+                title: "兑换内容",
+                content: coupon.gift
+            };
+        case 5:
+            return {
+                title: "减免金额",
+                content: coupon.face_money
+            };
+        case 6:
+            return {
+                title: "特殊券",
+                content: "特殊券"
+            }
+        case 7:
+            return {
+                title: "票类型",
+                content: coupon.type_text
+            };
+    }
+}
+
+var getName = function (name, len) {
+    len = len || 10;
+    if (name&&len){
+      if (name.length > len) {
+        return name.slice(0, len) + "...";
+      }
+    }else{
+      name='';
+    }
+
+    return name;
+}
+function changeNum(num) {
+  return num.split(".")[0];
+}
+function parseCouponDescription(text){
+    if(text.indexOf('\r\n')>-1){
+        return text.split('\r\n')
+    }
+    if(text.indexOf('\n')>-1){
+        return text.split('\n')
+    }
+    if(text.indexOf('\r')>-1){
+        return text.split('\r')
+    }
+    return [text]
+}
+
+function getOpenType(url, nav_list){
+    var openType = "navigate";
+    if (nav_list){
+      for (var i = 0; i < nav_list.length; i++) {
+        var navListElement = nav_list[i];
+        if (navListElement.pagePath.indexOf(url) > -1 && navListElement.status == 1) {
+          openType = "reLaunch"
+        }
+      }
+    }
+    return openType;
+}
+
+// 判断是否含有某个字符串
+var isExit = function (data, world) {
+  if (data && world){
+    if (data.indexOf(world)>=0) {
+      return 1;
+    } else {
+      return 0;
+    }
+  }
+  return 0;
+}
+//超出部分显示省略
+var overflowNum = function(msg,num){
+  if(msg){
+    if(!num)num=8;
+    if (msg.length > num) {
+      msg = msg.slice(0, num)
+      msg+='...'
+    }
+  }
+  return msg?(msg):'';
+}
+//订单状态
+function orderStatus(status) {
+  if (status) {
+    var obj = {}
+    if (status <= 1) {
+      obj.title = '未支付'
+      obj.desc = '请尽快完成支付,超时自动取消'
+    } else if (status == 2) {
+      obj.title = '未发货'
+      obj.desc = '物流信息:等待发货'
+    } else if (status == 3) {
+      obj.title = '已发货'
+      obj.desc = '物流信息:商品已发货'
+    } else if (status == 4) {
+      obj.title = '交易完成'
+      obj.desc = '物流信息:快递已被服务站代签收'
+    } else if (status == 5) {
+      obj.title = '已取消'
+      obj.desc = '物流信息:交易取消'
+    } else if (status == 6) {
+      obj.title = '退款中'
+      obj.desc = '物流信息:退款中'
+    } else if (status == 7) {
+      obj.title = '确认收货'
+      obj.desc = '物流信息:确认收货'
+    }
+    return obj;
+  }
+
+}
+function parseDeliverRule(shop) {
+  if (shop.local_type * 1 == 1) {//限定配送距离
+    var text = '消费'
+    if (shop.amount_type === 'order_money') {
+      text = "订单"
+    }
+    if (shop.amount_type === 'pay_amount') {
+      text = "实付金额"
+    }
+    return text + "满" + shop.delivery_min_amount + "元起送"
+  } else {//不限配送距离
+    return "0元起送"
+  }
+}
+//保留两位小数
+function saveDouble(num) {
+  if (num) {
+    var f = parseFloat(num);
+    if (isNaN(f)) {
+      return;
+    }
+    f = Math.round(num * 100) / 100;
+    return f;
+  } else {
+    return 0;
+  }
+}
+
+
+module.exports = {
+    parseFrequency: parseFrequency,
+    parseDeliverDate: parseDeliverDate,
+    parseProLong: parseProLong,
+    chunk: chunk,
+    getPageUrl: getPageUrl,
+    getFixedPrice: getFixedPrice,
+    parseOrderPaidTime: parseOrderPaidTime,
+    parseOrderPaidStatus:parseOrderPaidStatus,
+    judgePreSend:judgePreSend,
+    parseProductCouponTypeTitle: parseProductCouponTypeTitle,
+    JSON:JSON,
+    parseCouponDescription: parseCouponDescription,
+    getOpenType: getOpenType,
+    parseDeliverOrderInfo:parseDeliverOrderInfo,
+    parseInt: parseInt,
+    parseFloat: parseFloat,
+    transBigNumber:transBigNumber,
+    parseEarliestDeliverDate: parseEarliestDeliverDate,
+    getName: getName,
+    changeNum: changeNum,
+    isExit: isExit,
+    overflowNum:overflowNum,
+    orderStatus: orderStatus,
+    parseDeliverRule: parseDeliverRule,
+    saveDouble: saveDouble
+}

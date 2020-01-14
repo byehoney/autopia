@@ -1,0 +1,139 @@
+<!--member.wxml-->
+<view class="superbox">
+  <view wx:if="{{is_vip}}">
+    <view class="head">
+      <view class="card">
+        <image src="" style="width:100rpx;height:100rpx;border-radius:50rpx;background:gold;margin-top:30rpx;margin-left:30rpx"></image>
+        <view class="head_right">
+          <view style="display: flex;flex-direction: row;align-items:center">
+            <text style="font-size:36rpx;color:#ffefe0">名字名字</text>
+            <view style="width:120rpx;heiht:40rpx;background:#eeddcc;border-radius:6rpx;display:flex;align-items:center;justify-content:center;margin-left:10rpx">
+              <image src="/images/v_black@2x.png" style="width:23rpx;height:19rpx;"></image>
+              <text style="font-size:20rpx;color:#39383a">黑卡会员</text>
+            </view>
+            
+          </view>
+           <view style="display: flex;flex-direction: row;">
+            <text style="font-size:22rpx;color:#c1c1c1">2020-09-09到期</text>
+           </view>
+        </view>
+
+      </view>
+    </view>
+
+
+    <!-- 会员专享权益 -->
+    <view class="kingSeg">
+      <image src="/images/wangguan@2x.png" style="width:48rpx;height:42rpx"></image>
+      <view style="display:flex;justify-content:center;align-items:center">
+        <image style="width:82rpx;height:24rpx;margin-right:10rpx" src="/images/three_line@2x.png"></image>
+        <text style="font-size:44rpx;color:#967648">会员专享权益</text>
+        <image style="width:82rpx;height:24rpx;margin-left:10rpx" src="/images/three_line_right@2x.png"></image>
+      </view>
+    </view>
+    <view style="display:flex;flex-direction:column;align-items:center;">
+      <block  wx:for="{{5}}">
+        <view style="width:690rpx;height:230rpx;background:orange;margin-bottom:20rpx;" bindtap="specialPower" data-idx="{{index}}">
+
+        </view>
+      </block>
+    </view>
+
+    <!-- 会员服务权益 -->
+    <view class="kingSeg">
+      <image src="/images/wangguan@2x.png" style="width:48rpx;height:42rpx"></image>
+      <view style="display:flex;justify-content:center;align-items:center">
+        <image style="width:82rpx;height:24rpx;margin-right:10rpx" src="/images/three_line@2x.png"></image>
+        <text style="font-size:44rpx;color:#967648">会员服务权益</text>
+        <image style="width:82rpx;height:24rpx;margin-left:10rpx" src="/images/three_line_right@2x.png"></image>
+      </view>
+    </view>
+
+    <view style="display:flex;flex-direction:row;flex-wrap:wrap">
+      <block  wx:for="{{7}}">
+        <view style="margin-left:30rpx;width:330rpx;height:170rpx;background:purple;margin-bottom:20rpx;" bindtap="serviceLegal" data-idx="{{index}}">
+
+        </view>
+      </block>
+    </view>
+
+
+   <!-- 会员推荐权益 -->
+    <view class="kingSeg">
+      <image src="/images/wangguan@2x.png" style="width:48rpx;height:42rpx"></image>
+      <view style="display:flex;justify-content:center;align-items:center">
+        <image style="width:82rpx;height:24rpx;margin-right:10rpx" src="/images/three_line@2x.png"></image>
+        <text style="font-size:44rpx;color:#967648">会员推荐权益</text>
+        <image style="width:82rpx;height:24rpx;margin-left:10rpx" src="/images/three_line_right@2x.png"></image>
+      </view>
+    </view>
+
+    <view class="vip_bottom">
+        <view class="background">
+        <image src="https://ctb-public-file.oss-cn-beijing.aliyuncs.com/shop/VipDescBackground.png" style="width:690rpx;height:800rpx"></image>
+
+          <view style="display:flex;flex-direction:column;width:600rpx;margin-top:70rpx;">
+
+            <block wx:for="{{listRule}}">
+              <view style=" display:flex;z-index:999;margin-bottom:20rpx" >
+                <image src="/images/vipRule_point@2x.png" style="display:inline-block;width:21rpx;height:18rpx;margin-top:12rpx"></image>
+                <text style="margin-left: 30rpx;font-size:28rpx;color:#7a7772">{{item}}</text>
+              </view>
+            </block>
+          </view>
+      
+            
+
+        </view>
+    </view>
+
+    <view style="height:200rpx"></view>
+
+
+    <view class="bottomInvite">
+  
+        <view style="width:650rpx;height:100rpx;background:#EDC691;display:flex;justify-content:center;align-items:center;border-radius:40rpx" bindtap="inviteFriend">
+          <text style="font-size:34rpx;color:#67472F">邀请好友、即可获得100元奖励</text>
+        </view>
+
+    </view>
+
+  </view>
+  <view wx:else style="background:#121212">
+      <block wx:for="{{list}}">
+        <image src="{{item}}" style="width:750rpx;display:block" lazy-load mode="widthFix" ></image>
+      </block>
+
+    <view style="height:260rpx"></view>
+    <view class="bottomPurchse">
+  
+        <view style="width:650rpx;height:160rpx;display:flex;justify-content:center;align-items:center" bindtap="openVip">
+          <!-- <text style="font-size:36rpx;color:white">立即购买</text> -->
+          <image src="/images/openViPbtn.png" style="width:720rpx;height:220rpx"></image>
+
+        </view>
+        <view style="width:650rpx;height:100rpx;display:flex;justify-content:center;align-items:flex-start;background:#121212">
+          
+          <view style="display:flex;justify-content:center;align-items:center;width:80rpx;height:80rpx;margin-top: -24rpx;" bindtap="selectRule">
+
+            <!-- 选中协议 -->
+            <block wx:if="{{select}}">
+              <image src="/images/ruleSelect.png" style="width:40rpx;height:40rpx"></image>
+            </block>
+            <block wx:else>
+              <image src="/images/ruleUnSelect.png" style="width:40rpx;height:40rpx"></image>
+            </block>
+            
+          </view>
+
+          <text style="color:white;font-size:22rpx">已阅读并同意</text>
+          <view bindtap="lookRule" style="display:flex;align-items:center">
+            <text style="color:#d1aa79;font-size:22rpx">《车托帮会员服务协议》</text>
+          </view>
+        </view>
+
+    </view>
+    
+  </view>
+
+</view>

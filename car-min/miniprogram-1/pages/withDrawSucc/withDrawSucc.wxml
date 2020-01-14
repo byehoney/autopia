@@ -1,0 +1,9 @@
+<!--pages/withDrawSucc/withDrawSucc.wxml-->
+<view class="container">
+  <view class="main">
+    <image class="icon" src="../../images/order/success_icon.png"></image>
+    <view class="tip">申请成功</view>
+    <view class="back">返回</view>
+    <button open-type="share" class="inviteBtn">邀请好友继续赚钱</button>
+  </view>
+</view>

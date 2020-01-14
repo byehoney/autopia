@@ -1,0 +1,48 @@
+/* pages/user/order/index.wxss */
+@import "../../../wxss/circle_buy_timeline.wxss";
+.logistics-box{
+  border: none!important;
+  padding-top:0!important;
+}
+.logistics-box>text{
+  border-bottom: 1rpx solid #f4f4f4;
+  padding:20rpx 0;
+}
+/* 订单状态 */
+.order-status{
+  width: 100%;
+  padding: 20rpx;
+  margin-top: 20rpx;
+  background: #fff;
+}
+.order-status .title{
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #353535;
+  margin-bottom: 6rpx;
+}
+.order-status .desc{
+  font-size: 28rpx;
+  color: #999;
+  margin-bottom: 6rpx;
+}
+.logisticsLayer .logisticsList .delivery-view{
+  display:flex;
+  justify-content: space-between;
+  border: none;
+  padding-bottom: 5rpx;
+}
+
+.logisticsLayer .logisticsList .delivery-view+text{
+  padding-left: 20rpx;
+}
+
+.list-slide-down{
+  text-align:center;
+  font-size:28rpx;
+  padding-bottom:20rpx;
+  color: #999;
+}
+.list-slide-down .iconfont {
+  font-size:24rpx;
+}

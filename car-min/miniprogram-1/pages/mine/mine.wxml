@@ -1,0 +1,298 @@
+<!--mine.wxml-->
+<view class="superView">
+  <view style="background:#f8f8f8">
+   
+    <block wx:if="{{hasUserInfo}}">
+      <!-- 已登录 非VIP -->
+      <block wx:if="{{!isVip}}">
+        <view class="myhead bottomMyHead">
+            <image src="{{userMsg.head_img}}" style="width:120rpx;height:120rpx;margin-left:50rpx;margin-top:70rpx;border-radius:60rpx" mode="aspectFill"></image>
+          
+              <view style="display:flex;flex-direction:column;margin-top: 70rpx;margin-left: 30rpx;width:450rpx">
+                <text style="color:white;font-size:44rpx">{{userMsg.nickname}}</text>
+                <view style="background:#f66167;width: 100rpx;justify-content: center;display: flex">
+                  <text style="color:white;font-size:24rpx">非会员</text>
+                </view>
+              </view>
+
+              <view class="imageEdit" style="margin-top: 100rpx" bindtap="mineInfo">
+                <image src="../../images/bianji@2x.png" style="width:50rpx;height:50rpx"></image>
+              </view>
+          
+        </view>
+
+        <view class="bottomMemberMark" bindtap="openVip">
+          <view style="display:flex"><image style="width:50rpx;height:50rpx;margin-left:20rpx" src="/images/huiyuan-3@2x.png" mode="aspectFill"></image></view>
+          
+          <text style="font-size:32rpx;color:#333;height:50rpx;margin-left: 15rpx;margin-right:5rpx">开通会员享受超值会员权益</text>
+          
+          <button style="border-radius:30rpx;background-color:#f43a41;color:white;font-size:24rpx;width:180rpx;height:60rpx">立即开通</button>
+        </view>
+      </block>
+      <!-- 已登录 是VIP -->
+      <block wx:else>
+        <view class="headSeg"></view>
+        <view class="vipMyHead">
+
+
+          <view style="display:flex;flex-direction:row;">
+
+              <image src="{{userMsg.head_img}}" style="width:120rpx;height:120rpx;margin-left:50rpx;margin-top:70rpx;border-radius:60rpx" mode="aspectFill"></image>
+            
+              <view style="display:flex;flex-direction:column;flex-direction: column;margin-top: 70rpx;margin-left: 30rpx;width:400rpx">
+                <view style="display:flex;align-items:center">
+                  <text style="color:white;font-size:44rpx">{{userMsg.nickname}}</text>
+                  <view style="background:#f66167;width: 120rpx;justify-content: center;display: flex;margin-left:10rpx">
+                    <text style="color:#ffe1b2;font-size:24rpx">车主黑卡</text>
+                  </view>
+                </view>
+                
+                <view style="display:flex;">
+                  <text style="color:white;font-size:24rpx">{{userMsg.vip_info.end_at}}</text>
+                </view>
+              </view>
+
+              <view class="imageEdit" style="margin-top: 100rpx;" bindtap="mineInfo">
+                <image src="../../images/bianji@2x.png" style="width:50rpx;height:50rpx"></image>
+              </view>
+
+          </view>
+          <view style="display:flex;flex-direction:row;justify-content:space-between;height:160rpx;align-items:center;margin-top:20rpx">
+            <view style="display:flex;flex:4;height:160rpx;flex-direction:column;justify-content:center;align-items:center">
+              <view style="display:flex;flex-direction:row;align-items:center;margin-bottom:10rpx">
+                <text style="font-size:30rpx;color:white">{{userMsg.lower_count}}</text>
+                <text style="font-size:20rpx;color:white;display">人</text>
+              </view>
+              
+              <text style="font-size:24rpx;color:white">已邀请</text>
+            </view>
+
+            <view style="display:flex;flex:4;height:160rpx;flex-direction:column;justify-content:center;align-items:center">
+              <view style="display:flex;flex-direction:row;align-items:center;margin-bottom:10rpx">
+                <text style="font-size:30rpx;color:white">{{userMsg.settle_fee}}</text>
+                <text style="font-size:20rpx;color:white;display">元</text>
+              </view>
+              
+              <text style="font-size:24rpx;color:white">待入账</text>
+            </view>
+
+
+            <view style="display:flex;flex:4;height:160rpx;flex-direction:column;justify-content:center;align-items:center">
+              <view style="display:flex;flex-direction:row;align-items:center;margin-bottom:10rpx">
+                <text style="font-size:30rpx;color:white">{{userMsg.withdraw_able_fee}}</text>
+                <text style="font-size:20rpx;color:white;display">元</text>
+              </view>
+              
+              <text style="font-size:24rpx;color:white">可提现</text>
+            </view>
+
+
+
+            <view style="display:flex;flex:4;height:160rpx;flex-direction:column;justify-content:center;align-items:center">
+              <view style="display:flex;flex-direction:row;align-items:center;margin-bottom:10rpx">
+                <text style="font-size:30rpx;color:white">{{userMsg.all_profit_fee}}</text>
+                <text style="font-size:20rpx;color:white;display">元</text>
+              </view>
+              
+              <text style="font-size:24rpx;color:white">累计收益</text>
+            </view>
+
+            
+          </view>
+
+        </view>
+      </block>
+    </block>
+
+    <!-- 未登录 -->
+    <block wx:else>
+
+      <view class="myhead bottomMyHead">
+        <image src="{{userInfo.avatarUrl}}" style="width:120rpx;height:120rpx;margin-left:50rpx;margin-top:70rpx;border-radius:60rpx"></image> 
+        <button hidden="{{hasUserInfo}}" class="loginBtn" open-type="getUserInfo" bindgetuserinfo="getUserInfo">登录/注册</button>        
+      </view>
+      <view class="bottomMemberMark" bindtap="openVip">
+        <view style="display:flex"><image style="width:50rpx;height:50rpx;margin-left:20rpx" src="/images/huiyuan-3@2x.png" mode="aspectFill"></image></view>
+        
+        <text style="font-size:32rpx;color:#333;height:50rpx;margin-left: 15rpx;margin-right:5rpx">开通会员享受超值会员权益</text>
+        
+        <button style="border-radius:30rpx;background-color:#f43a41;color:white;font-size:24rpx;width:180rpx;height:60rpx">立即开通</button>
+      </view>
+
+    </block>
+
+  </view>
+
+  <view class="mineOrderStatus" style="height:300rpx;display:flex;flex-direction:column;background:white;margin-top:20rpx">
+    <view style="display:flex;flex-direction:row;justify-content:space-between;height:100rpx;align-items:center" bindtap="clickAllOrder"> 
+      <text style="font-size:38rpx;color:#333;margin-left:30rpx">我的订单</text>
+      <view style="display:flex;align-items:center">
+        <text style="font-size:28rpx;color:#999;margin-right:20rpx">查看全部订单</text>
+        <image src="https://ctb-public-file.oss-cn-beijing.aliyuncs.com/shop/xiangxia%402x.png" class="arrow" style="margin-right:30rpx"></image>
+      </view>
+    </view>
+    <view class="lineAll"></view>
+    <view style="display:flex;flex-direction:row;align-items:center;justify-content:space-around">
+
+      <view class="orderItem" bindtap="orderPay">
+
+        <view style="position:relative;width: 50rpx;height: 40rpx;bottom:20rpx;display: flex;margin-top: 10rpx;">
+         
+          <view hidden="{{!hasUserInfo|(userMsg.wait_pay==0)}}" class="orderMark" style="position:absolute" >
+            <text >{{userMsg.wait_pay}}</text>
+         </view>
+          <image src="../../images/daifukuan@2x.png" style="width:50rpx;height:40rpx"></image>
+
+        </view>
+
+        <text style="font-size:24rpx;color:#333;">待付款</text>
+      </view>
+
+      <view class="orderItem" bindtap="orderSend">
+
+
+
+        <view style="position:relative;width: 44rpx;height: 38rpx;bottom:20rpx;display: flex;margin-top: 15rpx;">
+         
+          <view hidden="{{!hasUserInfo|(userMsg.wait_delivery==0)}}" class="orderMark" style="position:absolute">
+              <text>{{userMsg.wait_delivery}}</text>
+          </view>
+
+          <image src="../../images/daifahuo@2x.png" style="width:44rpx;height:38rpx"></image>
+
+       </view>
+
+        <text style="font-size:24rpx;color:#333">待发货</text>
+      </view>
+
+      <view class="orderItem" bindtap="orderReceive">
+
+        <view style="position:relative;width: 52rpx;height: 38rpx;bottom:20rpx;display: flex;margin-top: 19rpx">
+         
+          <view hidden="{{!hasUserInfo|(userMsg.wait_confirm==0)}}" class="orderMark" style="position:absolute">
+              <text>{{userMsg.wait_confirm}}</text>
+          </view>
+
+          <image src="../../images/daishouhuo-2@2x.png" style="width:52rpx;height:38rpx"></image>
+        </view>
+
+        <text style="font-size:24rpx;color:#333">待收货</text>
+      </view>
+      <view class="orderItem" bindtap="orderEnd">
+        <image src="../../images/yiwancheng-2@2x.png" style="width:40rpx;height:41rpx"></image>
+        <text style="font-size:24rpx;color:#333">已完成</text>
+      </view>
+      <view style="height:140rpx;width:1px;background:#f0f0f0;margin-top: 30rpx;margin-left: 10rpx;margin-right: 10rpx"></view>
+      <view class="orderItem" bindtap="clickAllOrder">
+        <image src="../../images/quanbudingdan-2@2x.png" style="width:40rpx;height:44rpx"></image>
+        <text style="font-size:24rpx;color:#333">全部订单</text>
+      </view>
+    </view>
+
+
+  </view> 
+
+  <!-- 已登录 是VIP  邀请关系-->
+  <block wx:if="{{isVip&&hasUserInfo}}">
+    <view class="headSeg"></view>
+    <view class="bindRelation" bindtap="clickRelation">
+      
+      <text style="height:112rpx;font-size:38rpx;color:#333;font-weight:bold;margin-left: 30rpx;align-items: center;display: flex">邀请关系</text>
+      <view class="lineAll"></view>
+      <view style="display:flex;flex-direction:row;align-items:center;height:113rpx;justify-content:space-between">
+
+        <view style="display:flex;flex-direction:row;align-items:center">
+          <text style="font-weight:bold;font-size:32rpx;color:#333;margin-left:50rpx;margin-right:20rpx;">邀请人</text>
+          <view style="background:#f0f0f0;height:80rpx;width:1px"></view>
+          <image src="{{userMsg.invite_user.head_img}}" style="width:70rpx;height:70rpx;margin-left:20rpx;border-radius:35rpx"></image>
+          <text style="font-size:32rpx;color:#333;margin-left:20rpx">{{userMsg.invite_user.nickname}}</text>
+        </view>
+         
+         <text style="color:#999;font-size:24rpx;margin-right:30rpx">{{userMsg.invite_user.created_at}}</text>
+      </view>
+    </view>
+  </block> 
+
+  <view class="bottomView">
+      <view class="headSeg"></view>
+      <view style="margin-top:30rpx;margin-left:30rpx;height:80rpx">
+        <text style="font-size:38rpx;color:#333333">常用功能</text>
+      </view>
+      <view style="margin-top: 0rpx;height: 1px;margin-left: 0rpx;margin-right: 0rpx;background: #f0f0f0"></view>
+
+
+      <block wx:if="{{isVip}}">
+        <view class="viewBottomBigItem" wx:for="{{bottomList}}" data-idx="{{index}}" bindtap="bottomClick">
+
+
+
+            <block wx:if="{{index==3}}">
+
+
+              <view class='col-100'>
+
+                <view  style="width: 750rpx;height: 108rpx;display: flex;flex-direction:row;align-items: center;z-index: 999;">
+                    <image class="bottomHead" src="{{item.url}}"></image>
+                    <text class="bottomText">{{item.name}}</text>
+                    <image class="arrow" src="https://ctb-public-file.oss-cn-beijing.aliyuncs.com/shop/xiangxia%402x.png"></image>
+                </view>
+        
+                <button open-type="contact" class='contacButton'>
+    
+                </button>
+                <view class="line"></view>
+            
+              </view>
+
+            </block>
+
+            <block wx:else>
+              <view  class="viewBottomItem">
+                  <image class="bottomHead" src="{{item.url}}"></image>
+                  <text class="bottomText">{{item.name}}</text>
+                  <image class="arrow" src="https://ctb-public-file.oss-cn-beijing.aliyuncs.com/shop/xiangxia%402x.png"></image>
+              </view>
+              <view class="line"></view>
+            </block>
+
+        </view>
+      </block>
+      <block wx:else>
+          <view class="viewBottomBigItem" wx:for="{{bottomNotVipList}}" data-idx="{{index}}" bindtap="bottomClick">
+
+
+
+              <block wx:if="{{index==2}}">
+
+
+                <view class='col-100'>
+
+                  <view  style="width: 750rpx;height: 108rpx;display: flex;flex-direction:row;align-items: center;z-index: 999;">
+                      <image class="bottomHead" src="{{item.url}}"></image>
+                      <text class="bottomText">{{item.name}}</text>
+                      <image class="arrow" src="https://ctb-public-file.oss-cn-beijing.aliyuncs.com/shop/xiangxia%402x.png"></image>
+                  </view>
+          
+                  <button open-type="contact" class='contacButton'>
+      
+                  </button>
+                  <view class="line"></view>
+              
+                </view>
+
+              </block>
+
+              <block wx:else>
+                <view  class="viewBottomItem">
+                    <image class="bottomHead" src="{{item.url}}"></image>
+                    <text class="bottomText">{{item.name}}</text>
+                    <image class="arrow" src="https://ctb-public-file.oss-cn-beijing.aliyuncs.com/shop/xiangxia%402x.png"></image>
+                </view>
+                <view class="line"></view>
+              </block>
+
+          </view>
+      </block>
+
+  </view>
+</view>

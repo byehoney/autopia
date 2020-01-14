@@ -1,0 +1,15 @@
+<!--pages/vipGift/vipGift.wxml-->
+<view class="superView">
+  <view class="headBanner">
+    <image src="https://ctb-public-file.oss-cn-beijing.aliyuncs.com/shop/giftbanner.png" lazy-load mode="widthFix" style="width:750rpx"></image>
+  </view>
+
+  <view style="display:flex;flex-wrap:wrap;justify-content:space-between;width:710rpx;margin-left:20rpx">
+    <block wx:for="{{5}}">
+      <view style="display:flex;width:340rpx;height:550rpx;background:white;margin-bottom:20rpx"></view>
+    </block>
+  </view>
+
+</view>
+
+

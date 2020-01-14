@@ -1,0 +1,83 @@
+const CompressionWebpackPlugin = require('compression-webpack-plugin')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
+    .BundleAnalyzerPlugin
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const isProduction = process.env.NODE_ENV === 'production'
+module.exports = {
+    // 项目部署的基础路径 默认/
+    // 放在子目录时使用./或者加你的域名
+    publicPath: './',
+    configureWebpack: config => {
+        if (isProduction) {
+            // 为生产环境修改配置...
+            // 上线压缩去除console等信息
+            config.plugins.push(
+                new UglifyJsPlugin({
+                    uglifyOptions: {
+                        compress: {
+                            // warnings: false,
+                            // drop_console: true,
+                            // drop_debugger: false,
+                            // pure_funcs: ['console.log'] // 移除console
+                        }
+                    },
+                    sourceMap: false,
+                    parallel: true
+                })
+            )
+            // 开启gzip压缩
+            const productionGzipExtensions = /\.(js|css|json|txt|html|ico|svg)(\?.*)?$/i
+            config.plugins.push(
+                new CompressionWebpackPlugin({
+                    filename: '[path].gz[query]',
+                    algorithm: 'gzip',
+                    test: productionGzipExtensions,
+                    threshold: 10240,
+                    minRatio: 0.8
+                })
+            )
+            if (process.env.npm_config_report) {
+                // 打包后模块大小分析//npm run build --report
+                config.plugins.push(new BundleAnalyzerPlugin())
+            }
+        } else {
+            // 为开发环境修改配置...
+        }
+    },
+    chainWebpack: config => {
+        // 对vue-cli内部的 webpack 配置进行更细粒度的修改。
+        // 设置目录别名alias
+        config.resolve.alias
+            .set('assets', '@/assets')
+            .set('components', '@/components')
+            .set('view', '@/view')
+            .set('style', '@/style')
+            .set('api', '@/api')
+            .set('store', '@/store')
+    },
+    css: {
+        // 是否使用css分离插件 ExtractTextPlugin
+        extract:isProduction? true:false,
+        // 开启 CSS source maps?
+        sourceMap: false,
+        // css预设器配置项
+        // 启用 CSS modules for all css / pre-processor files.
+        modules: false,
+        loaderOptions: {
+            
+        }
+    },
+    lintOnSave: true, // default false
+    // 打包时不生成.map文件
+    productionSourceMap: false,
+    devServer: {
+        open: true, // 启动服务后是否打开浏览器
+        host: '0.0.0.0',
+        port: 8081, // 服务端口
+        https: false,
+        hotOnly: false,
+        // 设置代理，用来解决本地开发跨域问题，如果设置了代理，那你本地开发环境的axios的baseUrl要写为 '' ，即空字符串
+        proxy: 'https://tbigdata.chetuobang.com/', // 设置代理
+        // proxy: 'http://192.168.60.221:18201',
+    }
+}

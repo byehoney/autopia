@@ -1,0 +1,91 @@
+<!--pages/timingAct/timingAct.wxml-->
+<view class="super_box">
+  <view class="head">
+
+    <block wx:for="{{headType}}">
+      <view class="header-item" bindtap="header_click" data-idx="{{index}}">
+
+        <view class="segment-item">
+
+          <text wx:if="{{index==topIndex}}" style="font-size:34rpx;color:white">{{item}}</text>
+          <text wx:else style="font-size:28rpx;color:#d5d5d5">{{item}}</text>
+        </view>
+
+      </view>
+    </block>
+
+  </view>
+  <view style="height:110rpx"></view>
+
+  <block wx:if="{{topIndex==0}}">
+    <view>
+      抽奖预告
+    </view>
+  </block>
+  <block wx:elif="{{topIndex==1}}">
+    <view style="background:#F23940;width:750rpx;display:flex;flex-direction:column;align-items:center">
+      <view class="row1">
+        <view style="width:100rpx;height:1px;background:white;margin-right:30rpx"></view>
+        <text style="color:white;font-size:28rpx">距离开奖还有</text>
+        <view style="margin-left:30rpx;width:100rpx;height:1px;background:white"></view>
+        <view style="display:flex;align-items:center;justify-content:center;background:#E0393F;width:60rpx;height:60rpx;border-radius:30rpx;position:absolute;right:-120rpx">
+          <text style="color:white;font-size:22rpx">规则</text>
+        </view>
+
+      </view>
+      <view class="row2">
+        <view style="width:80rpx;height:100rpx" class="timeItem"></view>
+        <text style="font-size:50rpx;color:#D0021B;margin-left:10rpx;margin-right:10rpx">:</text>
+        <view style="width:80rpx;height:100rpx" class="timeItem"></view>
+        <text style="font-size:50rpx;color:#D0021B;margin-left:10rpx;margin-right:10rpx">:</text>
+        <view style="width:80rpx;height:100rpx" class="timeItem"></view>
+        <text style="font-size:50rpx;color:#D0021B;margin-left:10rpx;margin-right:10rpx">:</text>
+        <view style="width:80rpx;height:100rpx" class="timeItem"></view>
+      </view>
+      <view class="row3">
+        <image mode="aspectFill" style="width:300rpx;height:300rpx;margin-top:20rpx;background:green"></image>
+        <view class="row3-title" style="display:flex;align-items:center;width:670rpx">
+          <text style="font-size:38rpx;color:#333;margin-left:20rpx">刚回公司说古道今阿哥椅子</text>
+        </view>
+        <view style="display:flex;align-items:flex-end;margin-bottom:20rpx;width:670rpx;justify-content:space-between">
+            <text style="margin-left:20rpx">抽奖价22</text>
+            <text style="text-decoration:line-through;font-size:24rpx;color:b5b5b5">市场价1970</text>
+            <text style="color:#F43A41;font-size:24rpx;margin-right:20rpx">3个中奖名额</text>
+        </view>
+      </view>
+
+      <view class="row4">
+        <view style="width:100rpx;height:1px;background:white;margin-right:30rpx"></view>
+        <text style="color:white;font-size:28rpx">我的抽奖码</text>
+        <view style="margin-left:30rpx;width:100rpx;height:1px;background:white"></view>
+      </view>
+      
+      <scroll-view class="scrollList" scroll-y>
+        <view  style="width:710rpx;display:flex;flex-direction:row;flex-wrap:wrap;justify-content:space-between;margin-left:20rpx">
+          <block wx:for="{{28}}">
+            <view style="width:220rpx;background:blue;height:50rpx;margin-top:30rpx"></view>
+          </block>
+        </view>
+      </scroll-view>
+
+      <!-- <view style="display:flex;align-items:center;justify-content:center;background:white;border-radius:40rpx;width:600rpx;height:80rpx">
+        <text style="color:#F43A41;font-size:32rpx">参与抽奖</text>
+      </view> -->
+
+    <view  style="height:160rpx"></view>
+
+    <view class="bottomInvite">
+  
+        <view style="width:650rpx;height:100rpx;background:white;display:flex;justify-content:center;align-items:center;border-radius:50rpx" bindtap="inviteFriend">
+          <text style="font-size:34rpx;color:#F43A41">参与抽奖</text>
+        </view>
+
+    </view>
+    </view>
+  </block>
+  <block wx:elif="{{topIndex==2}}">
+    <view>
+      记录
+    </view>
+  </block>
+</view>

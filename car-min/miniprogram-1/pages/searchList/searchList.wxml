@@ -1,0 +1,173 @@
+<!--pages/searchList/searchList.wxml-->
+<view class="whiteSuperView">
+  <view class="headSearchView" style="position:fixed;width:750rpx">
+    <view class="inner" style="margin:10rpx 30rpx;display: flex;align-items: center;background-color: #F0F2F5;border-radius:35rpx;;height:80rpx;z-index:1002">
+      <image class="icon" src="https://ctb-public-file.oss-cn-beijing.aliyuncs.com/shop/sousuo.png"></image>
+      <input placeholder="搜索商品"  class="searchInput" placeholder-style="color:#ccc;font-size:28rpx"  bindconfirm="bindconfirm" confirm-type="search"></input>
+    </view>
+      
+  </view>
+  <view style="height:100rpx"></view>
+  <view class="lineAll" style="position:fixed;top:100rpx;width: 750rpx;z-index:30"></view>
+
+  <view class="bottomContent">
+  
+    <block wx:if="{{showGoods}}">
+      <block wx:if="{{goodsList.length==0}}">
+        <image style="width:450rpx;height:240rpx;margin-left:150rpx;margin-top:50rpx;margin-bottom:10rpx;" src="https://ctb-public-file.oss-cn-beijing.aliyuncs.com/shop/queshengtu%402x.png"></image>
+        <text style="color:#888888;font-size:32rpx;width:750rpx;text-align:center">没有找到相关商品</text>
+    
+
+      </block>
+      <block wx:else>
+        <view style="height:80rpx;display:flex;justify-content:flex-end;align-items:center;position: fixed;width: 750rpx;background: white;" bindtap="priceSort">
+            <text style="font-size:26rpx;margin-right:10rpx">{{ascendingOrder?"价格升序":"价格降序"}}</text>
+            <image src="{{ascendingOrder?'https://ctb-public-file.oss-cn-beijing.aliyuncs.com/shop/up%402x.png':'https://ctb-public-file.oss-cn-beijing.aliyuncs.com/shop/down%402x.png'}}" style="width:18rpx;height:20rpx;margin-right:30rpx"></image>
+        </view>
+        <view style="height:80rpx"></view>
+
+
+        <view class="lineAll" style="position:fixed;top:180rpx;width: 750rpx;z-index:30"></view>
+        <block wx:for="{{goodsList}}">
+
+          <!-- 当时的 -->
+
+        <view class="foodItem" catchtap="goodDetail" data-idx="{{index}}" data-item="{{item}}">
+          <image style="width:250rpx;height:250rpx;margin-right:20rpx;margin-left:30rpx;border-radius:10rpx" mode="aspectFill" src="{{item.picture}}"></image>
+          <view class="goodsItemRight">
+            <view class="goodTitle">
+              <text style="font-size:32rpx;color:#333" class="goodItemName">{{item.goods_name}}</text>
+            </view>
+
+            <view class="goodLabel" style="height:50rpx;margin-top:10rpx;">
+              <text style="font-size:24rpx;color:#999">{{item.service_promise}}</text>
+            </view>
+
+            <view wx:if="{{is_vip}}" style="width:430rpx;height:50rpx;margin-top:10rpx;display:flex" class="goodVip">
+                <view style="background:#e3c48c;border-radius:5rpx;width:80rpx;display:flex;align-items:center;justify-content:center;margin-right:10rpx">
+                  <text style="font-size:20rpx;color:white">vip价</text>
+            
+                </view>
+                
+                <view style="background:#f43c43;;display:flex;align-items:center;justify-content:center">
+                  <text style="font-size:20rpx;color:white;padding-left:6rpx;padding-right:6rpx">再返</text>
+                </view>
+                
+                <view style="background:white;display:flex;align-items:center;justify-content:center;border-style:solid;border-width:1rpx;border-left:1rpx;border-color:#f43c43">
+                    <text style="font-size:20rpx;color:#f43c43;padding-left:6rpx;padding-right:6rpx">{{item.cash_back_price}}元</text>
+            
+                </view>
+
+            </view>
+            <view wx:else style="width:430rpx;height:50rpx;margin-top:10rpx"></view>
+
+            <view class="goodBottom" style="display:flex;align-items:flex-end;justify-content:space-between;height:100rpx">
+            
+                <!-- width: 200rpx -->
+              
+              <text  wx:if="{{is_vip}}" style="font-size:40rpx;color:#f53d44;">¥{{item.vip_price}}</text>
+              <text wx:else style="font-size:40rpx;color:#f53d44;">¥{{item.ordinary_price}}</text>
+
+              <!-- //width: 120rpx -->
+              <text style="font-size:24rpx;color:#969696;text-decoration:line-through;height: 45rpx;">市场价¥{{item.market_price}}</text>
+            
+              <block >
+                <view style="border-width:thin;border-color:#ff383f;border-radius:10rpx;border-style: solid;display: flex;" catchtap="purchseClick" data-idx="{{index}}" data-item="{{item}}">
+                  <text style="color:#ff383f;font-size:28rpx;margin-right:10rpx;margin-left:10rpx">购买</text>
+                </view>
+              </block>
+
+
+
+            </view>
+          </view>
+
+        </view>
+
+          <!-- 速度速度 -->
+          <view class="line"></view>
+        </block>
+
+      </block>
+
+      <view style="width:750rpx;display:flex;justify-content:center;margin-top:70rpx;">
+          <text style="color:#f43e45;font-size:28rpx"> ---更多推荐--- </text>
+      </view>
+      <block wx:for="{{list}}">
+        <view class="foodItem" catchtap="goodDetail" data-idx="{{index}}" data-item="{{item}}">
+          <image style="width:250rpx;height:250rpx;margin-right:20rpx;margin-left:30rpx;border-radius:10rpx" mode="aspectFill" src="{{item.picture}}"></image>
+          <view class="goodsItemRight">
+            <view class="goodTitle">
+              <text style="font-size:32rpx;color:#333" class="goodItemName">{{item.goods_name}}</text>
+            </view>
+
+            <view class="goodLabel" style="height:50rpx;margin-top:10rpx;">
+              <text style="font-size:24rpx;color:#999">{{item.service_promise}}</text>
+            </view>
+
+            <view wx:if="{{is_vip}}" style="width:430rpx;height:50rpx;margin-top:10rpx;display:flex" class="goodVip">
+                <view style="background:#e3c48c;border-radius:5rpx;width:80rpx;display:flex;align-items:center;justify-content:center;margin-right:10rpx">
+                  <text style="font-size:20rpx;color:white">vip价</text>
+            
+                </view>
+                
+                <view style="background:#f43c43;;display:flex;align-items:center;justify-content:center">
+                  <text style="font-size:20rpx;color:white;padding-left:6rpx;padding-right:6rpx">再返</text>
+                </view>
+                
+                <view style="background:white;display:flex;align-items:center;justify-content:center;border-style:solid;border-width:1rpx;border-left:1rpx;border-color:#f43c43">
+                    <text style="font-size:20rpx;color:#f43c43;padding-left:6rpx;padding-right:6rpx">{{item.cash_back_price}}元</text>
+            
+                </view>
+
+            </view>
+            <view wx:else style="width:430rpx;height:50rpx;margin-top:10rpx"></view>
+
+            <view class="goodBottom" style="display:flex;align-items:flex-end;justify-content:space-between;height:100rpx">
+            
+                <!-- width: 200rpx -->
+              
+              <text  wx:if="{{is_vip}}" style="font-size:40rpx;color:#f53d44;">¥{{item.vip_price}}</text>
+              <text wx:else style="font-size:40rpx;color:#f53d44;">¥{{item.ordinary_price}}</text>
+
+              <!-- //width: 120rpx -->
+              <text style="font-size:24rpx;color:#969696;text-decoration:line-through;height: 45rpx;">市场价¥{{item.market_price}}</text>
+
+              <block >
+                <view style="border-width:thin;border-color:#ff383f;border-radius:10rpx;border-style: solid;display: flex;" catchtap="purchseClick" data-idx="{{index}}" data-item="{{item}}">
+                  <text style="color:#ff383f;font-size:28rpx;margin-right:10rpx;margin-left:10rpx">购买</text>
+                </view>
+              </block>
+
+
+
+            </view>
+          </view>
+
+        </view>
+        <view class="line"></view>
+      </block>
+
+    </block>
+    <block  wx:else>
+      <view class="bottomHead" style="width:750rpx;height:100rpx;align-items:center;display:flex;flex-=direction:row;justify-content:space-between;background:white">
+        <text style="font-size:26rpx;color:#333;margin-left:30rpx;">历史记录</text>
+        
+        <view class="viewDelete" bindtap="deleteAll">
+          <image src="https://ctb-public-file.oss-cn-beijing.aliyuncs.com/shop/shanchu%402x.png" style="width:28rpx;height:32rpx"></image>
+        </view>
+      </view>
+      <view class="bottomItemBig">
+        <block wx:for="{{historyList}}">
+            <view class="bottomItem" bindtap="clickItem" data-idx="{{index}}">
+              <text style="font-size:26rpx;color:#333;margin:5rpx 10rpx">{{item}}</text>
+            </view>
+        </block>
+      </view>
+
+    </block>
+     
+  </view>
+
+</view>
+

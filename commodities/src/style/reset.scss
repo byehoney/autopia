@@ -1,0 +1,26 @@
+.mybar .mint-tab-item-icon {
+    width: 29px;
+    height: 28px;
+    margin: 0 auto 6px;
+    display: flex;
+    justify-content: center;
+}
+* {
+    margin: 0;
+    padding: 0;
+  }
+  ul li {
+    list-style: none;
+  }
+  a {
+    text-decoration: none;
+    color: #333;
+  }
+.fix{*zoom:1;}
+.fix:after{display:block; content:"clear"; height:0; clear:both; overflow:hidden; visibility:hidden;}
+input{
+  border:none;
+  outline: none;
+  -webkit-appearance: none;
+  border-radius: 0;
+}

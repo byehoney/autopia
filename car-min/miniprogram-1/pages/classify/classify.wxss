@@ -1,0 +1,105 @@
+/**classify.wxss**/
+
+.headSearchView{
+  height: 100rpx;
+  background:white;
+  z-index: 1001;
+}
+
+.inner .icon{
+  width: 26rpx;
+  height: 26rpx;
+  margin-left: 27rpx;
+}
+.searchInput{
+ 
+  margin-left: 20rpx;
+  z-index: 1010;
+  height: 80rpx;
+  line-height:80rpx;
+  vertical-align:top;
+  width: 620rpx
+}
+
+.content{
+  width: 100vw;
+  display: flex;
+  /* height: 200rpx; */
+
+}
+.leftView{
+  width: 175rpx;
+  background: white;
+  height: 95vh;
+  display: flex;
+  flex-direction: column;
+  float: left;
+
+}
+.viewTypeItem{
+  height: 100rpx;
+  display: flex;
+  justify-content:center;
+  align-items: center;
+
+}
+.viewTypeSelectedItem{
+  background: #f8f8f8;
+  height: 100rpx;
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  position: relative;
+}
+
+.rightView{
+  flex: 1;
+  background: white;
+  margin: 20rpx;
+  height: 90vh;
+  float: right;
+
+}
+.blockRight{
+  display: flex;
+  flex-direction: column;
+
+}
+.rightItem{
+
+  width: 145rpx;
+  height: 200rpx;
+  margin-top: 10rpx;
+  margin-left: 20rpx;
+  margin-right: 10rpx;
+  margin-bottom: 10rpx;
+  /* background: yellow; */
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+.rightItem image{
+  margin-top:10rpx;
+  margin-bottom: 10rpx;
+}
+.rightItem text{
+  margin-top:10rpx;
+  font-size:22rpx;
+  color: #333;
+}
+
+
+/* 隐藏scroll-view滚动条 */
+::-webkit-scrollbar{
+width: 0;
+height: 0;
+color: transparent;
+}
+
+/* .weui-icon-search_in-box{
+    position:absolute;
+    left:12px;
+    top:50%;
+    margin-top:-8px;
+  } */
+

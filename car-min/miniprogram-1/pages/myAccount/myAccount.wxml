@@ -1,0 +1,55 @@
+<!--pages/myAccount/myAccount.wxml-->
+<view class="head">
+  <view class="top">
+    <view class="des">
+      你已通过平台提现
+      <text class="money">{{withdraw_all_fee}}</text>
+      元
+    </view>
+    <view class="btn" bindtap="jumpWithDraw">提现</view>
+  </view>
+  <view class="bottom">
+    <view class="bItem">
+      <view class="title">
+        {{settle_fee}}
+        <text class="unit">元</text>
+      </view>
+      <view class="itemName">
+        待入账
+      </view>
+    </view>
+    <view class="bItem">
+      <view class="title">
+        {{withdraw_able_fee}}
+        <text class="unit">元</text>
+      </view>
+      <view class="itemName">
+        可提现
+      </view>
+    </view>
+    <view class="bItem">
+      <view class="title">
+        {{all_profit_fee}}
+        <text class="unit">元</text>
+      </view>
+      <view class="itemName">
+        累积收益
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 账单流水 -->
+<view class="list">
+  <view class="title">账单流水</view>
+  <view class="listItem" wx:for="{{list}}" wx:for-item="item" wx:for-index="index" wx:key="{{index}}">
+    <view class="left">
+      <view class="type">{{item.type==0?'支出':'收入'}}</view>
+      <view class="time">{{item.created_at}}</view>
+    </view>
+    <view class="right">
+      <view class="money {{item.type==0?'black':''}}">{{item.type==0?('-'+item.money):('+'+item.money)}}</view>
+      <view class="type">{{item.desc}}</view>
+    </view>
+  </view>
+</view>

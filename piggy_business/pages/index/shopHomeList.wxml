@@ -1,0 +1,26 @@
+<import src="../public/editProductSearch.wxml" />
+<!--商品搜索 -->
+<import src="../public/warning.wxml" />
+<!--警告提示-->
+<view class="container {{pageTheme}}">
+    <view class="containerLayer" wx:if="{{!containerLayer}}"></view>
+    <template is="search" data="{{keyword:keyword,placeholder:'搜索门店'}}" />
+    <view class="shopDetailsInfo shopHomeList ">
+        <view class="clearfix open li" wx:for="{{shopHomeData}}" wx:key="">
+            <view data-id="{{item.pigcms_id}}" data-status="{{item.status}}" data-distance="{{item.distance}}" bindtap="goShopList">
+                <view data-id="{{item.pigcms_id}}">{{item.name}}
+                    <text data-id="{{item.pigcms_id}}" class="shop_sign shop_sign_main" style='color:#F6A414;font-weight:bold;' wx:if="{{item.main_store*1}}">(总店)</text>
+                </view>
+                <text data-id="{{item.pigcms_id}}" class="">{{item.address}}</text>
+            </view>
+            <view class="span" data-id="{{item.pigcms_id}}">
+                <text class="shop_sign shop_sign_normal" wx:if="{{item.status*1 == 1}}">营业</text>
+                <text class="shop_sign shop_sign_close" wx:if="{{item.status*1 != 1}}">打烊</text>
+                <text wx:if="{{item.distance==undefined}}" bindtap="getLocation">设置地址</text>
+                <text wx:if="{{item.distance!=undefined}}">≈{{item.distance}}</text>
+            </view>
+        </view>
+    </view>
+    <template is="warning" wx:if="{{warning.warningShow}}" data="{{warningTxt:warning.warningTxt}}" />
+</view>
+<include src="/pages/public/page_footer.wxml"></include>

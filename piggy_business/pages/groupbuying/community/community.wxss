@@ -1,0 +1,213 @@
+.groupbuying-position{
+  display: flex;
+  align-items: center;
+  height: 120rpx;
+  background: #fff;
+  font-size: 28rpx;
+}
+.groupbuying-position icon{
+  width: 38rpx;
+  height: 38px;
+  font-size: 38rpx;
+  margin-right: 12rpx;
+  
+}
+.content-padding{
+  padding: 0 30rpx;
+}
+.groupbuying-position text{
+  
+  flex: 1;
+}
+.edit-address{
+  width: 90rpx;
+  color: #999999;
+}
+.edit-address text{
+  margin-right: 10rpx;
+}
+.groupbuying-person-content{
+  background: #fff;
+  margin-top: 20rpx ;
+  padding-bottom: 24rpx;
+  overflow: hidden;
+}
+.groupbuying-person-part{
+	height: 176rpx;
+  margin-top: 24rpx;
+	background-color: #ffffff;
+	box-shadow: 0px 0px 17px 1px 
+		rgba(216, 216, 216, 0.68);
+	border-radius: 20px; 
+  padding: 0 20rpx;
+  overflow: hidden;
+}
+.groupbuying-person-part .iconwarp{
+  position: relative;
+  float: left;
+  height: 100%;
+  margin-right: 24rpx;
+}
+.groupbuying-person-part .iconwarp image{
+  width: 96rpx;
+	height: 96rpx;
+  margin: 40rpx 0 0; 
+  border-radius: 50%;
+	background-color: #cce198;
+}
+.groupbuying-person-part .iconwarp text{
+  position: absolute;
+  right: 0;
+  bottom: 40rpx;
+  text-align: center;
+  width: 62rpx;
+	height: 25rpx;
+	background-color: #ff6030;
+	border-radius: 0px 12rpx 0px 12rpx;
+  font-size: 18rpx;
+	line-height: 25rpx;
+	color: #ffffff;
+}
+.groupbuying-person-part .position-distance{
+  margin-bottom: 22rpx;
+	height: 30rpx;
+  line-height: 30rpx;
+  margin-top: 50rpx;
+	font-size: 32rpx;
+	font-weight: normal;
+	color: #202020;
+}
+.groupbuying-person-part .position-distance text{
+  float: right;
+  font-size: 22rpx;
+	color: #ff6030;
+}
+.groupbuying-person-part .address-name{
+  font-size: 24rpx;
+	color: #666666;
+}
+.current-person{
+  position: relative;
+  overflow: hidden;
+  margin-top: 24rpx;
+	background-color: #ffffff;
+  padding-bottom: 32rpx;
+	box-shadow: 0px 0px 17rpx 1rpx 
+		rgba(216, 216, 216, 0.68);
+	border-radius: 20px;
+}
+.current-person-namefans,.current-person-detail{
+  padding: 0 34rpx;
+}
+.current-person-namefans{
+  color: #202020;
+}
+.current-person-namefans text{
+  line-height: 34rpx;
+  font-size: 36rpx;
+	
+}
+.current-person-namefans .fans-num{
+  font-size: 22rpx;
+  line-height: 26rpx;
+  margin-top: 20rpx;
+}
+.current-person-namefans .fans-num label{
+  font-size: 26rpx;
+	color: #666666;
+  margin-right: 12rpx;
+}
+.current-person-title{
+  width: 140rpx;
+	height: 46rpx;
+  margin: 20rpx 0 24rpx;
+  font-size: 22rpx;
+  text-align: center;
+  line-height: 46rpx;
+	color: #ffffff;
+	background-image: linear-gradient(90deg, 
+		#feb40d 0%, 
+		#ff6030 100%), 
+	linear-gradient(
+		#cce198, 
+		#cce198);
+	background-blend-mode: normal, 
+		normal;
+	box-shadow: 0px 0px 8rpx 1rpx 
+		rgba(248, 88, 40, 0.35);
+	border-radius: 0px 23rpx 23rpx 0px;
+}
+.current-person-detail {
+  font-size: 24rpx;
+  margin-top:52rpx;
+  color: #333333;
+}
+.current-person-detail view{
+  margin-bottom: 16rpx;
+}
+.current-person-detail view:last-child{
+  margin: 0;
+}
+.current-person-detail label{
+  float: left;
+   color: #666;
+   margin-right: 40rpx;
+   width: 100rpx;
+   display: flex;
+   text-justify:inter-cluster;
+}
+.current-person .icon-wrap{
+  position: absolute;
+  top: 46rpx;
+  right: 36rpx;
+}
+.current-person .icon-wrap image{
+  width: 120rpx;
+	height: 120rpx;
+  margin-bottom: 46rpx;
+	background-color: #cce198;
+	box-shadow: 0px 0px 17rpx 1rpx 
+		rgba(216, 216, 216, 0.68);
+	border: solid 8rpx #ffffff;
+  border-radius: 50%;
+}
+.current-person .icon-wrap text{
+  display: block;
+  margin-bottom: 44rpx;
+  width: 151rpx;
+	height: 44rpx;
+  line-height: 44rpx;
+  font-size: 24rpx;
+  text-align: center;
+	color: #ffffff;
+	background-color: #ff6030;
+	border-radius: 22rpx;
+}
+.current-person-position{
+  margin: 40rpx 0 10rpx;
+  font-size: 24rpx;
+	color: #666666;
+}
+.current-person-position icon{
+  margin-right: 10rpx;
+  color: #ff6030;
+}
+.none-grouper{
+  text-align: center;
+}
+.none-grouper image{
+  width: 300rpx;
+  height: 300rpx;
+  margin: 100rpx auto 20rpx;
+}
+.none-grouper .tip{
+  margin-bottom: 20rpx;
+  color: #666;
+}
+.none-grouper text{
+  margin-bottom: 20rpx;
+  font-size: 30rpx;
+  text-align: center;
+  display: block;
+  color: #ff6030;
+}

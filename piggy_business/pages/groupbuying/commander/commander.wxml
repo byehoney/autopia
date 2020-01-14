@@ -1,0 +1,45 @@
+<view>
+  <view class='search-warp'>
+    <view class="search_area">
+          <text class="iconfont icon-chazhao input-icon"></text>
+          <input type="text" placeholder="请输入商品名称进行搜索" confirm-type="search"/>
+      </view>
+  </view>
+  <view class='commander-content-wrap'>
+    <view class='commander-card'>
+      <view class='commander-card-top'>
+        <image class='commander-card-icon'></image>
+        <view class='commander-card-address'>
+          <text>飞屋环球记</text>
+          <text>合肥市绿城桂花园桂花苑</text>
+        </view>
+        <view class='commander-card-opeartion'>
+          <view class='commander-card-item'>
+            <image></image>
+            <text>附近团长</text>
+          </view>
+          <view class='commander-card-item'>
+            <image></image>
+            <text>一键复制</text>
+          </view>
+        </view>
+      </view>
+      <view class='buying-preson-wrap'>
+        <view class='buying-preson-box'>
+          <image></image>
+          <text>飞舞it能挺好</text>
+        </view>
+        <view class='buying-preson-box'>
+          <image></image>
+          <text>飞舞it能挺好</text>
+        </view>
+        <view class='lookmore'>
+          购买了  >
+        </view>
+      </view>
+    </view>
+    <view class='commander-member'>
+    
+    </view>
+  </view>
+</view>

@@ -1,0 +1,47 @@
+/* pages/activity/activity.wxss */
+.super_box{
+  background: #FF974B;
+  width: 750rpx;
+  display: flex;
+  flex-direction: column;
+
+}
+.goodItem{
+  margin-left: 25rpx;
+  width: 700rpx;
+  background: white;
+  height: 280rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 30rpx;
+  
+
+}
+.itemRight{
+  display: flex;
+  flex-direction: column;
+  width: 420rpx;
+  height: 240rpx;
+  margin-left: 15rpx;
+  justify-content: space-between;
+
+}
+.title{
+
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp:2;
+  overflow: hidden;
+  word-break: break-all;
+}
+/* .title text{
+  height:auto;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp:2;
+  overflow: hidden;
+  word-break: break-all;
+  text-overflow: ellipsis;
+
+} */

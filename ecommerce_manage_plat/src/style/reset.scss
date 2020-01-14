@@ -1,0 +1,27 @@
+.pubForm  .el-upload--picture-card,.pubForm   .el-upload-list--picture-card .el-upload-list__item{
+    width: 80px!important;
+    height: 80px!important;
+    line-height: 80px!important;
+    position: relative!important;
+}
+.pubForm  .formTip .el-form-item__label{
+    opacity: 0;
+}
+.pubForm .upImg{
+    margin-bottom: 20px;
+}
+.pubForm  .el-upload--picture-card,.pubForm   .el-upload-list--picture-card .el-upload-list__item{
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    position: relative!important;
+}
+.pubForm  .el-upload__text{
+    display: inline-block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    line-height: 120px;
+}

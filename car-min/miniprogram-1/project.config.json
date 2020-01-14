@@ -1,0 +1,111 @@
+{
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"coverView": true,
+		"autoAudits": false,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		},
+		"showShadowRootInWxmlPanel": true,
+		"scopeDataCheck": false
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.9.4",
+	"appid": "wx0ec0c1e00272518f",
+	"projectname": "carCloudTrade",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"gamePlugin": {
+			"current": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": [
+				{
+					"id": -1,
+					"name": "pages/goodDetail/goodDetail",
+					"pathName": "pages/goodDetail/goodDetail",
+					"query": "id=64",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/goodList/goodList",
+					"pathName": "pages/goodList/goodList",
+					"query": "fid=3",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/submitOrder/submitOrder",
+					"pathName": "pages/submitOrder/submitOrder",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 3,
+					"name": "pages/paySuccess/paySuccess",
+					"pathName": "pages/paySuccess/paySuccess",
+					"query": "type=fail",
+					"scene": null
+				},
+				{
+					"id": 4,
+					"name": "pages/index/index",
+					"pathName": "pages/index/index",
+					"query": "inviteCode=RH1XN5",
+					"scene": 1011
+				},
+				{
+					"id": -1,
+					"name": "pages/couponList/couponList",
+					"pathName": "pages/couponList/couponList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/couponDetail/couponDetail",
+					"pathName": "pages/couponDetail/couponDetail",
+					"query": "id=60",
+					"scene": null
+				}
+			]
+		}
+	}
+}

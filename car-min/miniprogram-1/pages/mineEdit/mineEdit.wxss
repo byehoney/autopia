@@ -1,0 +1,78 @@
+.superView{
+  background: #f8f8f8;
+  height: 100vh;
+}
+.bigView{
+  background: #fff;
+  height: 570rpx;
+  width: 100vw;
+  margin-top: 20rpx;
+  display: flex;
+  flex-direction: column;
+}
+.viewCount{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 110rpx;
+  background: #fff;
+
+  width: 750rpx;
+}
+.leftInfo{
+  color: #272727;
+  font-size: 32rpx;
+  margin-left: 30rpx;
+  width: 200rpx;
+
+}
+.centerInfo{
+  color: #272727;
+  font-size: 36rpx;
+  width: 450rpx;
+  text-align: right;
+}
+.centerText{
+  width: 450rpx;
+  font-size:36rpx;
+  text-align:right;
+  color: #b5b5b5;
+}
+.arrow{
+  width: 7px;
+  height: 12px;
+  /* margin-right: 30rpx; */
+  margin-left: 20rpx;
+}
+.imageArrow{
+  margin-left: 50rpx;
+}
+.viewAdd{
+  width: 450rpx;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+}
+.name-input{
+
+ 
+  width: 270rpx;
+  text-align: right;
+  /* height: 100rpx;
+  background: #fff; */
+
+}
+
+
+/* .form-item{display:flex;padding:10rpx 0;line-height:2rem;border-bottom:solid 1px #ECABA6;}
+
+.form-item >.form-label{flex:1%;max-width:5rem;} */
+/* 
+.form-input{flex:1%;display:inline-block;height:2rem;line-height:2rem;} */
+
+/* .form-image > image{min-height:841rpx;height:841rpx;display:block;}
+
+.submit-box{position:fixed;bottom:0;left:0;right:0;}
+
+.submit-box > .submit{border-radius:0;color:#fff;background:#DB6461;height:80rpx;line-height:80rpx;text-align:center;} */

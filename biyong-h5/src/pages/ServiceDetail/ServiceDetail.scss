@@ -1,0 +1,98 @@
+.service{
+    background: url(../../images/bg.png) no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+    .am-list-body {
+        background: transparent;
+    }
+
+    .service-info {
+        width:750px;
+        height:253px;
+    }
+    .service-img {
+        width:750px;
+        height:253px;
+    }
+    .active-reward {
+        background:rgba(27,199,135,1);
+        border-radius: 100px;
+        padding: 0 20px;
+        font-size: 24px;
+        color: #FFEF27;
+        height: 37px;
+        line-height: 37px;
+        margin-left: 20px;
+    }
+    .app-img {
+        width: 750px;
+        height: 98px;
+        background: url(../../images/app.png) no-repeat;
+        background-size: cover;
+        position: fixed;
+        bottom: 0;
+    }
+    .comment-list {
+        background: #26322D;
+        box-shadow: 0 -12px 30px 0 rgba(60,128,103,0.31);
+        border-radius: 80px;
+        flex: 1;
+        padding: 0 60px 60px 40px;
+        font-size: 28px;
+        color: rgba($color: #fff, $alpha: .6);
+    }
+    .comment-title {
+        font-size:26px;
+        color: #8BE3C2;
+        margin: 60px 0 60px 40px;
+    }
+    .title-label {
+        width: 132px;
+        height: 14px;
+        background: #1BC787;
+        border-radius: 91px;
+        margin: 44px auto 60px;
+    }
+    .comment-item {
+        display: flex;
+        margin-bottom: 60px;
+    }
+    .comment-avatar {
+        width: 88px;
+        height: 88px;
+        border-radius: 50%;
+        margin-right: 20px;
+        display: block;
+    }
+    .comment-info {
+        flex: 1;
+    }
+    .comment-author {
+        display: flex;
+        justify-content: space-between;
+        font-size: 22px;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+    .comment-name {
+        font-size: 32px;
+        color: #FFFFFF;
+    }
+    .comment-imgs {
+        margin-top: 60px;
+        display: flex;
+        justify-content: space-between;
+    }
+    .comment-img {
+        width: 160px;
+        height: 160px;
+        display: block;
+    }
+    .comment-video video {
+        width: 260px;
+        height: 160px;
+    }
+}

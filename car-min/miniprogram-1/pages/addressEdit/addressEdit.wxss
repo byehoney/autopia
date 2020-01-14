@@ -1,0 +1,36 @@
+/* pages/addressEdit/addressEdit.wxss */
+.content{
+  display: flex;
+  flex-direction: column;
+
+}
+.leftInfo{
+  width: 200rpx;
+  font-size: 28rpx;
+  color: #4d4d4d;
+  margin-left: 30rpx;
+
+}
+.name-input{
+  margin-left:0rpx;
+  height: 100rpx;
+  background: #fff;
+}
+.addressSwitch{
+  zoom: .6;
+  color: #f5444b;
+ 
+  margin-left: 680rpx;
+
+}
+.bottomSave{
+  height: 110rpx;
+  position: fixed;
+  margin-top: -110rpx;
+  background: #ccc;
+  width: 750rpx;
+
+}
+.saveAdd{
+  background: #f43d44;
+}

@@ -1,0 +1,103 @@
+<view class="superView">
+  <view class="bigView">
+    <view class="headSeg"></view>
+    <view class="viewCount" bindtap="bindViewTap">
+      <text class="leftInfo">我的账户</text>
+      <text class="centerInfo">{{account}}</text>
+      <image src="https://ctb-public-file.oss-cn-beijing.aliyuncs.com/shop/xiangxia%402x.png" class="arrow"></image>
+    </view>
+    <view class="line"></view>
+
+      <block wx:if="{{headUrl.length==0}}">
+        <view class="viewCount" bindtap="addHeadUrl">
+          <text class="leftInfo">头像</text>
+          <text  class="centerText">请添加头像 </text>
+          <image src="https://ctb-public-file.oss-cn-beijing.aliyuncs.com/shop/xiangxia%402x.png" class="arrow"></image>
+        </view>
+
+      </block>
+
+      <block wx:else>
+
+      <view class="viewCount" bindtap="addHeadUrl">
+        
+        <text class="leftInfo">头像</text>
+        <image src="{{headUrl}}" style="width:80rpx;height:80rpx;border-radius: 50%;margin-left: 370rpx;" mode="aspectFill"></image>
+        
+        
+        <image src="https://ctb-public-file.oss-cn-beijing.aliyuncs.com/shop/xiangxia%402x.png" class="arrow"></image>
+      </view>
+
+      </block>
+    <view class="line"></view>
+      <view class="viewCount">
+      <text class="leftInfo">性别</text>
+      <block wx:if="{{!gender}}">
+        <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}" style="width:450rpx;text-align: right;" class='form-input'>
+          {{gender}}
+        </picker>
+      </block>
+      <block wx:else>
+        <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}" style="width:450rpx;text-align: right;" class='form-input'>
+          {{gender}}
+        </picker>
+      </block>
+      
+      <image src="https://ctb-public-file.oss-cn-beijing.aliyuncs.com/shop/xiangxia%402x.png" class="arrow"></image>
+    </view>
+    <view class="line"></view>
+      <view class="viewCount">
+        <text class="leftInfo">出生年月</text>
+
+
+        <view class="viewAdd"> 
+
+            <block wx:if="{{userDate=='请选择出生日期'}}">
+
+                <picker class='form-input' mode="date" start="1920-01-01" end="2020-01-01" bindchange='DateChange' style="color: #b5b5b5;font-size: 36rpx;width:450rpx;text-align: right">
+                {{userDate}}
+                </picker>
+            </block>
+            <block wx:else>
+                <picker class='form-input' mode="date" start="1820-01-01" end="9999-01-01" bindchange='DateChange' style="color: #272727;font-size: 36rpx;width:450rpx;text-align: right">
+                {{userDate}}
+                </picker>
+            </block>
+     
+
+        </view>
+
+
+      <image src="https://ctb-public-file.oss-cn-beijing.aliyuncs.com/shop/xiangxia%402x.png" class="arrow"></image>
+    </view>
+    <view class="line"></view>
+
+
+    <view class="viewCount">
+      <text class="leftInfo">手机号</text>
+
+      <!-- <block wx:if="{{mobile.length<=11}}"> -->
+      <view class="viewAdd"> 
+        <input class="name-input" bindinput="bindKeyInput" maxlength="11"  placeholder-style="color:#b5b5b5;font-size:36rpx" type="number" placeholder="请绑定手机号"  value="{{mobile}}" disabled="true" style="font-size:36rpx;font-size: 36rpx"/>
+      </view>
+      <!-- </block>
+      <block wx:else>
+        <text class="centerInfo">{{mobile}}</text>
+      </block> -->
+    
+      <!-- <image src="https://ctb-public-file.oss-cn-beijing.aliyuncs.com/shop/xiangxia%402x.png" class="arrow"></image> -->
+    </view>
+
+    
+  </view>
+  
+  <!-- <view class="form-item">
+      <label class="form-label">出生日期</label>
+      <picker class='form-input' mode="date" start="1820-01-01" end="9999-01-01" bindchange='DateChange'>
+
+    {{userDate}}
+
+    </picker>
+
+  </view> -->
+</view>

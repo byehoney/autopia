@@ -1,0 +1,127 @@
+/* pages/myAccount/myAccount.wxss */
+page{
+  background-color: #F8F8F8;
+}
+.head{
+  background: url('https://ctb-public-file.oss-cn-beijing.aliyuncs.com/shop/jilubg.png') no-repeat 0 0;
+  background-size:100% 100%;
+  width: 690rpx;
+  height: 284rpx; 
+  margin: 30rpx auto;
+}
+.head .top{
+  width: 625rpx;
+  padding: 54rpx 0 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size:28rpx;
+  font-family:PingFangSC-Regular,PingFang SC;
+  font-weight:400;
+  color:rgba(255,255,255,1);
+  line-height:40rpx;
+  border-bottom: 2rpx solid #817F7A;
+  margin: 0 auto;
+}
+.head .top .money{
+  font-size:42rpx;
+  font-family:PingFangSC-Semibold,PingFang SC;
+  font-weight:600;
+  color:rgba(255,255,255,1);
+  line-height:59rpx;
+  margin-left: 16rpx;
+}
+.head .top .btn{
+  width:120rpx;
+  height:48rpx;
+  border-radius:24rpx;
+  border:2rpx solid rgba(255,207,133,1);
+  text-align: center;
+  line-height: 48rpx;
+}
+.head .bottom{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 625rpx;
+  margin: 0 auto;
+  padding: 24rpx 0 38rpx;
+}
+.head .bottom .bItem{
+  font-size:26rpx;
+  font-family:PingFangSC-Regular,PingFang SC;
+  font-weight:400;
+  color:rgba(255,255,255,1);
+  line-height:37rpx;
+  text-align: center;
+}
+.head .bottom .bItem .title{
+  font-size:30rpx;
+  margin-bottom: 10rpx;
+}
+.head .bottom .bItem .unit{
+  font-size:20rpx;
+  font-family:PingFangSC-Semibold,PingFang SC;
+  font-weight:600;
+  color:rgba(255,255,255,1);
+  line-height:28rpx;
+}
+.list{
+  background-color: #fff;
+}
+.list .title{
+  padding: 0 40rpx;
+  height: 112rpx;
+  display: flex;
+  align-items: center;
+  font-size:38rpx;
+  font-family:PingFangSC-Semibold,PingFang SC;
+  font-weight:400;
+  border-bottom: 2rpx solid #f3f4f5;
+}
+.list .listItem{
+  margin-left: 40rpx;
+  border-bottom: 2rpx solid #F3F4F5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding:19rpx  40rpx 18rpx 0;
+}
+.list .listItem:last-child{
+  border-bottom: none;
+}
+.listItem .left .type{
+  font-size:32rpx;
+  font-family:PingFangSC-Regular,PingFang SC;
+  font-weight:400;
+  color:rgba(38,38,38,1);
+  line-height:45rpx;
+}
+.listItem .left .time{
+  font-size:20rpx;
+  font-family:PingFangSC-Regular,PingFang SC;
+  font-weight:400;
+  color:rgba(155,155,155,1);
+  line-height:28rpx;
+  margin-top: 8rpx;
+}
+.listItem .right .money{
+  font-size:32rpx;
+  font-family:PingFangSC-Medium,PingFang SC;
+  font-weight:500;
+  color:rgba(255,120,125,1);
+  line-height:45rpx;
+  text-align: right;
+}
+.listItem .right .money.black{
+  color: #333333;
+}
+.listItem .right .type{
+  font-size:20rpx;
+  font-family:PingFangSC-Regular,PingFang SC;
+  font-weight:400;
+  color:rgba(155,155,155,1);
+  line-height:28rpx;
+  text-align: right;
+  margin-top: 8rpx;
+}

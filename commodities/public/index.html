@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<!-- DNS预解析 -->
+	<link rel="dns-prefetch" href="//lib.baomitu.com" />
+	<meta name="viewport"
+		content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=0,minimal-ui,viewport-fit=cover" />
+
+	<link rel="icon" href="<%= BASE_URL %>favicon.ico" />
+	<!-- 使用CDN加速的CSS文件，配置在vue.config.js下 -->
+	<% for (var i in
+    htmlWebpackPlugin.options.cdn&&htmlWebpackPlugin.options.cdn.css) { %>
+	<link href="<%= htmlWebpackPlugin.options.cdn.css[i] %>" rel="preload" as="style" />
+	<link href="<%= htmlWebpackPlugin.options.cdn.css[i] %>" rel="stylesheet" />
+	<% } %>
+	<title>vuedemo</title>
+</head>
+
+<body>
+	<noscript>
+		<strong>We're sorry but vuedemo doesn't work properly without JavaScript
+			enabled. Please enable it to continue.</strong>
+	</noscript>
+	<div id="app"></div>
+	<!-- 使用CDN加速的JS文件，配置在vue.config.js下 -->
+	<% for (var i in
+    htmlWebpackPlugin.options.cdn&&htmlWebpackPlugin.options.cdn.js) { %>
+	<script src="<%= htmlWebpackPlugin.options.cdn.js[i] %>"></script>
+	<% } %>
+	<!-- built files will be auto injected -->
+	<script>
+	if (window.plus) {
+		plusReady();
+		// alert(window.plus)
+	} else {
+		document.addEventListener("plusready", plusReady, false);
+	}
+	// 扩展API准备完成后要执行的操作
+	function plusReady() {
+		var ws = plus.webview.currentWebview(); //pw回车可输出plus.webview
+		// ... code
+		// alert('这是ready')
+		// alert(window.plus)
+	}
+	</script>
+</body>
+
+</html>
