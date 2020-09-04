@@ -48,7 +48,7 @@
     "cssnano-preset-advanced": "^4.0.7",
     "less": "^3.9.0",
     "less-loader": "^4.1.0",
-    "node-sass": "^4.11.0",
+    "node-sass": "^4.13.1",
     "postcss-aspect-ratio-mini": "^1.0.1",
     "postcss-preset-env": "^6.5.0",
     "postcss-px-to-viewport": "^1.1.0",
