@@ -21,7 +21,7 @@
     "vue": "^2.6.6",
     "vue-awesome-picker": "^1.1.0",
     "vue-baidu-map": "^0.21.20",
-    "vue-core-image-upload": "^2.4.11",
+    "vue-core-image-upload": "^2.4.13",
     "vue-drawer-layout": "^1.1.0",
     "vue-router": "^3.0.1",
     "vue-video-player": "^5.0.2",
@@ -30,7 +30,7 @@
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.0.5",
     "@vue/cli-plugin-eslint": "^3.0.5",
-    "@vue/cli-service": "^3.0.5",
+    "@vue/cli-service": "^5.0.8",
     "@vue/eslint-config-standard": "^4.0.0",
     "babel-eslint": "^10.0.1",
     "compression-webpack-plugin": "^2.0.0",
